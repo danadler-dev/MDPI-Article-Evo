@@ -44,7 +44,7 @@
 \TitleCitation{How Information Evolves}
 
 % Authors, for the paper (add full first names)
-\Author{Dan Adler - dan@danadler.com}
+\Author{Dan Adler $^{1}$}
 
 %\longauthorlist{no}
 
@@ -55,111 +55,145 @@
 \AuthorCitation{Dan Adler}
 % If this is a Chicago style journal: Lastname, Firstname, Firstname Lastname, and Firstname Lastname.
 
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad dan@danadler.com}
+
 %\simplesumm{} % Simple summary
 
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Evolution is often viewed as a fundamental characteristic of life, typically involving replicating entities capable of adaptation and governed by fitness-driven selection. In this paper, we explore a weaker concept of abiotic evolution, demonstrating how randomness, feedback loops, and population dynamics can drive the emergence of stable, ordered patterns without reliance on specific physical laws. Through abstract, non-physical systems of symbolic tokens governed by local probabilistic interactions and fitness-based selection, we illustrate how imbalances in frequency and fitness create feedback loops that produce emergent structures. This study highlights that emergent complexity is a universal property of systems with probabilistic interactions and selection mechanisms, offering a new perspective on the origins of pattern formation beyond the constraints of physical determinism.}
+\abstract{Evolution is often viewed as a fundamental characteristic of life, involving replicating entities capable of adaptation and governed by fitness-driven selection. In this paper, we explore a weaker form of abiotic evolution, demonstrating how randomness, feedback loops, and population dynamics can drive the emergence of stable, ordered patterns without reliance on specific physical laws. Through abstract, non-physical systems of symbolic tokens governed by local probabilistic interactions and fitness-based selection, we illustrate how imbalances in frequency and fitness create feedback loops that produce emergent complexity. This study highlights that emergent complexity is a universal property of systems with probabilistic interactions and selection mechanisms, offering a new perspective on the origins of pattern formation beyond the constraints of physical determinism.}
 
 % Keywords
 \keyword{Abiotic evolution; emergence; information theory; entropy; randomness; pattern formation; universal evolution; non-physical systems.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The order of the section titles is different for some journals. Please refer to the "Instructions for Authors” on the journal homepage.
 
 \section{Introduction}
 
-This paper considers a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions. The stability of these compounds determines their persistence in the population. Over successive generations, the system undergoes a form of weak natural selection where stability, serving as a proxy for fitness, drives the evolution of the population. Using a probabilistic framework, this study demonstrates how frequency imbalances and fitness-based selection lead to the emergence of stable patterns, creating a dynamic that drives the population towards a more ordered state.
+This paper considers a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions by some combination of attractive and repulsive forces. These elements could exist in our physical universe, or in a parallel universe with alternative laws of physics, or even in an imaginary universe such as a computer game. Let's further assume that the stability of these compounds determines their persistence in the population. Over successive generations, the system undergoes a form of weak natural selection where stability, serving as a proxy for fitness, drives the evolution of the population. Using a probabilistic framework, we demonstrate how frequency imbalances and fitness-based selection lead to the emergence of stable patterns, creating a dynamic that drives the population towards a low entropy state.
 
 
 In a simple case of just three elements: {A, B, C}, assume that compounds including B are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or pure A or C. In such a scenario, stable B-compounds will persist over multiple generations, while the unstable patterns will quickly dissipate. Although there is no individual replication or inheritance in the abiotic case, more stable patterns will interact more frequently based on their relative frequency in the population. The result is the same as fitness proportionate selection (aka roulette wheel selection).
 
-The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \cite{ref-journal}. Now citing a book reference \cite{ref-book1,ref-book2} or other reference types \cite{ref-unpublish,ref-communication,ref-proceeding}. Please use the command \citep{ref-thesis,ref-url} for the following MDPI journals, which use author--date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws, Religions, Risks, Social Sciences, Literature.
+%The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \cite{ref-journal}. Now citing a book reference \cite{ref-book1,ref-book2} or other reference types \cite{ref-unpublish,ref-communication,ref-proceeding}. Please use the command \citep{ref-thesis,ref-url} for the following MDPI journals, which use author--date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws, Religions, Risks, Social Sciences, Literature.
 
 \subsection{System Description and Dynamics}
-Consider a population of elements \( E = \{A, B, C, \dots \} \). Each element has a frequency \( f_X \) such that \( \sum_{X \in E} f_X = 1 \).
-Compounds \( C_{XY}, C_{XYZ}, \dots \) form through probabilistic interactions, with stability \( S(C) \) determining persistence.
-Fitness \( F(C) \) is proportional to stability \( S(C) \), such that \( F(C) = S(C) \).
-Frequencies evolve as:
-\[
-f_X(t+1) = \frac{\sum_{C \ni X} F(C) \cdot P(C)}{\sum_{X'} \sum_{C \ni X'} F(C) \cdot P(C)},
-\]
-where \( P(C) \) reflects interaction probabilities.
-
-\subsection{Emergent Behavior}
-- Stable compounds persist, biasing the system towards elements involved in these structures.
-- Feedback loops reinforce stability, creating self-organizing patterns.
-
-\subsection{Elements and Interactions}
-- Denote the population of elements as:
+In the more general case, denote the population of elements as:
 \[
 E = \{A, B, C, \dots\}.
 \]
-- Each element \( X \) has a frequency \( f_X \), such that:
+Each element \( X \) has a frequency \( f_X \), such that:
 \[
 \sum_{X \in E} f_X = 1.
 \]
 
-\subsection{Compounds}
-- Pairs (or higher-order combinations) of elements can form compounds \( C_{XY}, C_{XYZ}, \dots \), with stability \( S(C) \) as a defining property.
-- Stability \( S(C) \) measures how long the compound persists before dissociation.
-
-\subsection{Generation}
-- At each generation, elements interact, forming compounds with probabilities influenced by their frequencies.
-
-- Define the fitness \( F(C) \) of a compound as proportional to its stability \( S(C) \):
+Pairs (or higher-order combinations) of elements can form compounds \( C_{XY}, C_{XYZ}, \dots \), with stability \( S(C) \) as a defining property. Stability \( S(C) \) measures how long the compound persists before dissociation. At each generation, elements interact, forming compounds with probabilities influenced by their frequencies. Define the fitness \( F(C) \) of a compound as proportional to its stability \( S(C) \):
 \[
 F(C) = S(C).
 \]
-- Stable compounds persist longer and contribute more to the next generation's composition by dissociating into their constituent elements.
-
-\subsection{Compound Formation}
-- The probability of forming a compound \( C_{XY} \) is proportional to:
+Stable compounds persist longer and contribute more to the next generation's composition by dissociating into their constituent elements. The probability of forming a compound \( C_{XY} \) is proportional to:
 \[
 P(C_{XY}) \propto f_X \cdot f_Y \cdot g(C_{XY}),
 \]
-where \( g(C) \) is a function reflecting constraints such as geometry or energy barriers.
-
-\subsection{Survival and Contribution}
-- More stable compounds contribute their elements back into the system with higher weights when they dissociate, biasing frequencies toward constituents of stable compounds.
-
-\subsection{Frequency Update Equation}
-The frequency \( f_X^{(t+1)} \) at generation \( t+1 \) is updated as:
-\[
+where \( g(C) \) is a function reflecting constraints such as geometry or energy barriers. More stable compounds contribute their elements back into the system with higher weights when they dissociate, biasing frequencies toward constituents of stable compounds. The frequency \( f_X^{(t+1)} \) at generation \( t+1 \) is updated as:
+\begin{equation}
+\label{eq1}
 f_X^{(t+1)} = \frac{\sum_{C \ni X} F(C) \cdot P(C)}{\sum_{X'} \sum_{C \ni X'} F(C) \cdot P(C)},
+\end{equation}
+where \( P(C) \) is the probability of forming \( C \) in the previous generation. Over time, elements involved in forming more stable compounds \( (C_{XY}, C_{XYZ}, \dots) \) will increase in frequency. Elements with initially low frequencies may be outcompeted if they fail to form stable compounds. The system self-organizes toward a distribution of elements and compounds that maximizes overall stability.
+
+Think of \( f_X \) as the relative "size" of \( X \)'s slot on the roulette wheel.
+At each generation, higher \( f_X \) increases the likelihood of \( X \)'s participation in compounds. Fitness \( F(C) \) amplifies the impact of stable compounds, effectively "rigging" the wheel in favor of elements contributing to stability.
+
+If \( F(C) \) and \( g(C) \) are constant, the system may converge to a stationary distribution \( f_X^* \), biased toward elements forming the most stable compounds. Initially random distributions \( f_X^{(0)} \) will evolve, reducing entropy as stable configurations dominate. The system exhibits a weak form of natural selection, where fitness is defined as stability rather than reproductive success.
+
+In this case, the system’s fitness function is stability or persistence, which acts as a filter for preserving certain compounds and their constituent elements. Stability preferences impose a constraint on the system, reducing randomness. Elements forming stable compounds are selected for. Their frequencies increase, encoding knowledge about which interactions are favorable. In effect, the system learns and retains information about the stability landscape, evolving toward configurations with higher stability and the population becomes more ordered, reflecting lower entropy (negentropy). The Shannon entropy \( H \) at generation \( t \) is defined as:
+\[
+H^{(t)} = -\sum_{X \in E} f_X^{(t)} \log f_X^{(t)}.
 \]
-where \( P(C) \) is the probability of forming \( C \) in the previous generation.
+This measures the uncertainty or disorder in the system at generation \( t \). As the system evolves, the frequencies \( f_X^{(t)} \) are updated according to equation \eqref{eq1}. The evolution is biased toward elements involved in stable compounds, causing increased frequencies for elements in stable compounds, and reduced frequencies for elements in less stable or rarely formed compounds. This redistribution reduces entropy because high-probability elements dominate, concentrating the distribution, while low-probability elements contribute less, shrinking the uncertainty.
 
-\subsection{Selection Bias}
-- Over time, elements involved in forming more stable compounds \( (C_{XY}, C_{XYZ}, \dots) \) will increase in frequency.
+\subsection{Catalysis}
 
-\subsection{Stochastic Drift}
-- Elements with initially low frequencies may be outcompeted if they fail to form stable compounds.
+Other fitness criteria could also create frequency imbalances and drive the emergence of order and dominance in populations. These criteria depend on the specific system but share the common feature of amplifying certain elements or compounds based on measurable properties. Catalysis is one such example. Let's explore a system where \( A \) interacts with \( B \) to form a compound \( C_{AB} \), but this interaction occurs only in the presence of a catalyst \( D \). The catalyst \( D \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. We aim to show that this setup creates selection pressure for \( D \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( D \) facilitates the reaction by increasing its likelihood:
+\[
+P(A + B \to C_{AB} \mid D) \propto f_A \cdot f_B \cdot f_D.
+\]
 
-\subsection{Emergent Behavior}
-- The system self-organizes toward a distribution of elements and compounds that maximizes overall stability.
+The presence of \( D \) influences the formation rate of \( C_{AB} \), indirectly affecting the frequencies of \( A, B, \) and \( D \) through the dissociation of \( C_{AB} \):
+\begin{align*}
+f_A^{(t+1)} &= f_A^{(t)} + \alpha \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}, \\
+f_B^{(t+1)} &= f_B^{(t)} + \alpha \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}, \\
+f_D^{(t+1)} &= f_D^{(t)} + \beta \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}.
+\end{align*}
+where \( \alpha \) is the proportionality constant for reactants, and \( \beta \) is the contribution of \( D \) from catalysis.
 
-\subsection{Analogy to a Roulette Wheel}
-- Think of \( f_X \) as the relative "size" of \( X \)'s slot on the roulette wheel.
-- At each generation:
-  \begin{itemize}
-      \item Higher \( f_X \) increases the likelihood of \( X \)'s participation in compounds.
-      \item Fitness \( F(C) \) amplifies the impact of stable compounds, effectively "rigging" the wheel in favor of elements contributing to stability.
-  \end{itemize}
+Although \( D \) is not consumed in the reaction, its presence enables the formation of \( C_{AB} \), which dissociates and contributes to \( f_D \):
+\[
+f_D^{(t+1)} > f_D^{(t)} \quad \text{if } f_A \cdot f_B \cdot F(C_{AB}) > \text{threshold}.
+\]
+This creates selection pressure for \( D \), as its persistence increases the system's ability to form stable \( C_{AB} \), reinforcing its own frequency. The catalyst \( D \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system, and the resulting higher fitness compounds contribute to \( f_D \), creating a positive feedback loop. Over successive generations, elements \( A \) and \( B \) rely on \( D \) to form \( C_{AB} \) and the system selects for \( D \), even if its own stability is low, because it amplifies the system's stability.
 
-\subsection{Stationary Distribution}
-- If \( F(C) \) and \( g(C) \) are constant, the system may converge to a stationary distribution \( f_X^* \), biased toward elements forming the most stable compounds.
+This catalytic framework demonstrates how an element that facilitates reactions, without directly participating in the products, can experience selection pressure. The persistence of \( D \) arises from its indirect contribution to the system's fitness by enabling the formation of stable compounds which decrease the system's entropy.
 
-\subsection{Entropy Reduction}
-- Initially random distributions \( f_X^{(0)} \) will evolve, reducing entropy as stable configurations dominate.
+\section{Mixing Two Populations: Opportunities for Crossover and Symbiosis}
 
-\subsection{Evolutionary Dynamics}
-- The system exhibits a weak form of natural selection, where fitness is defined as stability rather than reproductive success.
+Mixing two previously separate populations introduces new interaction dynamics, enabling the formation of new stable combinations of unique compounds arising from cross-population interactions, as well as new catalytic elements enhancing reaction rates, creating pathways for more stable patterns than existed in either population individually.
+
+Imagine two such populations: \( E_1 = \{A_1, B_1, C_1, \dots\} \), \( E_2 = \{A_2, B_2, C_2, \dots\} \) each at a different stage in its evolution. Within each population there will be compounds such as \( C_{A_1B_1} \) and \( C_{A_2B_2} \), but now there are opportunities to form new compounds across both populations, e.g., \( C_{A_1B_2}, C_{A_2B_1} \), which were previously impossible. These compounds could be more stable than any of the compounds in either population, which would create new imbalances that further reduce the entropy of the combined population. We can call this crossover, as it closely resembles genetic crossover in biotic evolution.
+
+Furthermore, catalysts in \( E_1 \) may stabilize reactions in \( E_2 \) and vice versa, introducing symbiotic dynamics:
+\[
+P(A_1 + B_2 \to C_{A_1B_2} \mid D_1) \propto f_{A_1} \cdot f_{B_2} \cdot f_{D_1}.
+\]
+
+Cross-population interactions increase the diversity of compounds. For example:
+\[
+F(C_{A_1B_2}) = S(C_{A_1B_2}) \quad \text{and} \quad F(C_{A_2B_1}) = S(C_{A_2B_1}),
+\]
+where \( S(C) \) measures the stability of new compounds. These compounds contribute to the fitness landscape of both populations. Catalysts from one population (\( D_1 \)) may enable reactions in the other population (\( E_2 \)):
+\[
+P(A_2 + B_2 \to C_{A_2B_2} \mid D_1) \propto f_{A_2} \cdot f_{B_2} \cdot f_{D_1}.
+\]
+Such symbiotic relationships increase the persistence of \( D_1 \) and \( D_2 \), enhancing the overall stability of the mixed population.
+
+Cross-population compounds and catalytic symbiosis introduce new feedback loops: the formation of \( C_{A_1B_2} \) increases \( f_{A_1} \) and \( f_{B_2} \), and the enhanced stability of \( C_{A_2B_1} \) reinforces the presence of \( A_2 \) and \( B_1 \).
+
+\section{Analogy to Evolutionary Mechanisms}
+
+\subsection*{Crossover in Genetics}
+The formation of cross-population compounds parallels genetic crossover in biological systems, where recombination generates new traits.
+
+\subsection*{Symbiosis in Ecosystems}
+Catalytic interactions between populations resemble symbiotic relationships in ecosystems, where mutual benefits drive stability and persistence.
+
+\section{Mathematical Properties}
+
+\subsection*{Stationary Distribution}
+If \( F(C) \) and \( g(C) \) are constant, the mixed system converges to a stationary distribution:
+\[
+f_X^* \quad \text{biased toward elements forming stable cross-population compounds.}
+\]
+
+\subsection*{Entropy Reduction}
+The mixing of populations initially increases diversity, raising entropy. However, as stable compounds dominate, entropy decreases:
+\[
+H^{(t+1)} < H^{(t)}.
+\]
+
+\subsection*{Enhanced Stability}
+Mixed populations can achieve greater stability than isolated populations:
+\[
+\max(S(C_{XY})) \text{ in mixed populations} > \max(S(C_{XY})) \text{ in isolated populations.}
+\]
+
 
 
 
