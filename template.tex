@@ -64,11 +64,12 @@ $^{1}$ \quad dan@danadler.com}
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Evolution is often viewed as a fundamental characteristic of life, involving replicating entities capable of adaptation and governed by fitness-driven selection. In this paper, we explore a weaker form of abiotic evolution, demonstrating how randomness, feedback loops, and population dynamics can drive the emergence of stable, ordered patterns without reliance on specific physical laws. Through abstract, non-physical systems of symbolic tokens governed by local probabilistic interactions and fitness-based selection, we illustrate how imbalances in frequency and fitness create feedback loops that produce emergent complexity. Emergent patterns in complex systems often arise from simple rules governing interactions between elements. In this paper, we develop a theoretical framework where feedback mechanisms reinforce stable patterns, leading to emergent structures with long-term persistence. Using simulations of symbolic populations subject to probabilistic interactions and resource constraints, we show how frequency dynamics, regeneration rates, and stability biases create hierarchical order. We discuss how these mechanisms connect Bayesian reasoning, where frequency updates reflect environmental feedback, with the interplay of top-down and bottom-up causality. Our findings provide insights into the principles of pattern formation across biological, chemical, and abstract systems. This study highlights that emergent complexity is a universal property of systems with probabilistic interactions and selection mechanisms, offering a new perspective on the origins of pattern formation beyond the constraints of physical determinism.}
+\abstract{Evolution is often viewed as a fundamental characteristic of life, involving replicating entities capable of adaptation, governed by fitness-driven selection. In this paper, we explore a weaker form of abiotic evolution, demonstrating how randomness, feedback loops, and population dynamics can drive the emergence of stable, ordered patterns without reliance on specific physical laws. Through abstract, non-physical systems of symbolic tokens governed by local probabilistic interactions and stability-based selection, we illustrate how imbalances in frequency and fitness create feedback loops that produce emergent complexity. We discuss how these mechanisms mix top-down and bottom-up causality. Our findings provide insights into the principles of pattern formation across biological, chemical, and abstract systems. This study highlights that emergent complexity is a universal property of systems with probabilistic interactions and selection mechanisms, offering a new perspective on the origins of pattern formation beyond the constraints of physical determinism.}
 
 % Keywords
 \keyword{Abiotic evolution; emergence; information theory; entropy; randomness; pattern formation; universal evolution;  stability; feedback loops; Bayesian reasoning; top-down causality; symbolic systems; complex systems}
 
+\graphicspath{{images/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
@@ -78,14 +79,20 @@ $^{1}$ \quad dan@danadler.com}
 
 \section{Introduction}
 
-This paper considers a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions by some combination of attractive and repulsive forces. These elements could exist in our physical universe, or in a parallel universe with alternative laws of physics, or even in an imaginary universe such as a computer game. Let's further assume that the stability of these compounds determines their persistence in the population. Over successive generations, the system undergoes a form of weak natural selection where stability, serving as a proxy for fitness, drives the evolution of the population. Using a probabilistic framework, we demonstrate how frequency imbalances and fitness-based selection lead to the emergence of stable patterns, creating a dynamic that drives the population towards a low entropy state.
+This paper considers a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. These elements could exist in our physical universe, or in an abstract universe. Let's assume that the stability of compounds determines how many generations they will persist, and that the base elements regenerate. Over successive generations, the system undergoes a form of natural selection where compound stability, serving as a proxy for fitness, drives the evolution of the population. Frequency imbalances lead to the emergence of stable patterns, creating a dynamic that drives the population towards a low entropy state.
 
+Consider a population of 3 elements: {A, B, C}. Assume B-compounds are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or A or C. Therefore, B-compounds will persist over multiple generations, while the others will quickly dissipate. The more stable B-compounds will interact more frequently due to their relative frequency, even without replication or inheritance. A simulation may look like this:
 
-In a simple case of just three elements: {A, B, C}, assume that compounds including B are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or pure A or C. In such a scenario, stable B-compounds will persist over multiple generations, while the unstable patterns will quickly dissipate. Although there is no individual replication or inheritance in the abiotic case, more stable patterns will interact more frequently based on their relative frequency in the population. The result is the same as fitness proportionate selection (aka roulette wheel selection).
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=13cm]{pat_1}
+    \caption{ABC population histograms}
+    \label{fig:pat_1}
+\end{figure}
 
-%The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \cite{ref-journal}. Now citing a book reference \cite{ref-book1,ref-book2} or other reference types \cite{ref-unpublish,ref-communication,ref-proceeding}. Please use the command \citep{ref-thesis,ref-url} for the following MDPI journals, which use author--date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws, Religions, Risks, Social Sciences, Literature.
+Where is Maxwell's demon hiding in this example, driving it towards a low-entropy state? The answer lies in the roulette wheel. Compounds that persist longer have more chances to interact. As their frequency in the population grows, their chances to interact grow even more. In Evolutionary Dynamics, this is called fitness-proportionate selection or roulette wheel selection.
 
-\subsection{System Description and Dynamics}
+\section{System Description and Dynamics}
 In the more general case, denote the population of elements as:
 \[
 E = \{A, B, C, \dots\}.
@@ -120,6 +127,48 @@ In this case, the system’s fitness function is stability or persistence, which
 H^{(t)} = -\sum_{X \in E} f_X^{(t)} \log f_X^{(t)}.
 \]
 This measures the uncertainty or disorder in the system at generation \( t \). As the system evolves, the frequencies \( f_X^{(t)} \) are updated according to equation \eqref{eq1}. The evolution is biased toward elements involved in stable compounds, causing increased frequencies for elements in stable compounds, and reduced frequencies for elements in less stable or rarely formed compounds. This redistribution reduces entropy because high-probability elements dominate, concentrating the distribution, while low-probability elements contribute less, shrinking the uncertainty.
+
+\subsection{Importance of Regeneration in Symbolic Systems}
+
+\subsubsection{Avoiding Extinction in Population Dynamics}
+
+In the absence of regeneration, the symbolic population tends to rapidly decline as base elements are consumed during interactions to form compounds. This creates a depletion cascade, where:
+\begin{enumerate}
+    \item Base elements \( X \in \{A, B, C, \ldots\} \) are continuously removed from the population as they participate in forming compounds \( C = AB, ABC, \ldots \).
+    \item Compounds themselves decay over time, further reducing the population size without replenishing the base elements.
+    \item Resource and energy constraints exacerbate this decline, as compounds fail to persist and contribute back to the system.
+\end{enumerate}
+
+Without an external mechanism to regenerate base elements, the system ultimately collapses, leading to extinction of the population. Regeneration is thus essential for sustaining the system across generations, ensuring a steady supply of base elements for ongoing interactions and compound formation.
+
+\subsubsection{Physical Interpretation of Regeneration}
+
+In physical systems, the regeneration of base symbols can be interpreted as the replenishment of fundamental building blocks through natural processes. Examples include:
+\begin{itemize}
+    \item \textbf{Atomic Systems}: Atoms or ions participating in chemical reactions can be regenerated by environmental processes such as diffusion or external inputs of reactive species.
+    \item \textbf{Subatomic Particles}: Electrons in plasma systems can be regenerated through ionization or recombination processes, maintaining the particle population.
+    \item \textbf{Energy Redistribution}: In ecosystems, energy flows from sunlight or chemical gradients provide the means for regenerating fundamental nutrients and resources.
+\end{itemize}
+
+In abstract systems, regeneration might represent:
+\begin{itemize}
+    \item \textbf{Data Initialization}: Reintroduction of lost or unused data elements to maintain diversity in computational systems.
+    \item \textbf{Symbolic Restoration}: Replenishing foundational elements in symbolic or linguistic systems to sustain iterative processes.
+\end{itemize}
+
+\subsubsection{Regeneration in the Model}
+
+To capture these dynamics, the symbolic framework includes a regeneration rate \( r_X \) for each base element \( X \), expressed as:
+\begin{equation}
+r_X(t+1) = r_X(t) + \rho_{\text{external}},
+\end{equation}
+where \( \rho_{\text{external}} \) is the external regeneration input per generation. This ensures a steady influx of base elements, enabling:
+\begin{enumerate}
+    \item \textbf{System Sustainability}: Preventing population collapse by replenishing consumed elements.
+    \item \textbf{Dynamic Balance}: Allowing interactions to continue by maintaining a sufficient pool of base elements.
+    \item \textbf{Pattern Evolution}: Supporting the emergence of stable patterns by providing the raw materials for compound formation.
+\end{enumerate}
+
 
 \subsection{Catalysis}
 
@@ -266,6 +315,149 @@ The Bayesian perspective on frequency dynamics connects mathematical reasoning t
 \section{Conclusion}
 
 Feedback-driven stability offers a unifying framework for understanding pattern formation in emergent systems. By combining Bayesian reasoning with insights into top-down and bottom-up causality, this approach provides a new lens to study the evolution of information across diverse domains.
+
+\section{Predator-Prey Dynamics in Symbolic Systems}
+
+\subsection{Mapping Symbolic Interactions to Predator-Prey Models}
+
+The dynamics of the symbolic system can be conceptualized using predator-prey models, where the base elements act as "prey," and the compounds they form act as "predators." The interplay between regeneration rates of base symbols and the stability of compounds creates a feedback loop analogous to classical predator-prey relationships.
+
+In this analogy:
+\begin{itemize}
+    \item \textbf{Base elements} (\( A, B, C, \ldots \)) represent the prey, which are replenished through regeneration.
+    \item \textbf{Compounds} (\( AB, ABC, \ldots \)) represent the predators, which consume base elements during interactions and persist based on their stability.
+\end{itemize}
+
+\subsection{Differential Equations for Predator-Prey Dynamics}
+
+The dynamics can be expressed through a modified Lotka-Volterra system, where the populations of base elements (\( N_X \)) and compounds (\( N_C \)) evolve as:
+\begin{align}
+\frac{dN_X}{dt} &= r_X \cdot N_X - \sum_C P(C) \cdot N_X, \\
+\frac{dN_C}{dt} &= \beta \cdot P(C) \cdot N_X - \delta \cdot N_C,
+\end{align}
+where:
+\begin{itemize}
+    \item \( r_X \): Regeneration rate of the base element \( X \) (prey).
+    \item \( P(C) \): Probability of forming compound \( C \) (predator).
+    \item \( \beta \): Rate of compound formation (predator growth rate).
+    \item \( \delta \): Decay rate of compounds (predator mortality rate).
+\end{itemize}
+
+These equations describe a dynamic balance:
+\begin{enumerate}
+    \item Base elements are replenished at a rate proportional to \( r_X \), but are depleted by interactions forming compounds.
+    \item Compounds grow in population as they consume base elements but decay over time due to resource competition and energy constraints.
+\end{enumerate}
+
+\subsection{Emergent Stability from Predator-Prey Feedback}
+
+The predator-prey model inherently incorporates feedback:
+\begin{itemize}
+    \item \textbf{Prey Regulation}: The regeneration rates \( r_X \) dynamically adjust based on the presence of compounds, reflecting a feedback loop that maintains the population of base elements.
+    \item \textbf{Predator Reinforcement}: Persistent compounds act as "successful predators," increasing the regeneration of their constituent base elements and stabilizing their own presence.
+\end{itemize}
+
+This dynamic leads to emergent stability, where certain compounds dominate due to their ability to balance resource consumption (prey depletion) and persistence (predator survival).
+
+\subsection{Comparison to Classical Predator-Prey Systems}
+
+Unlike traditional predator-prey models, this system includes:
+\begin{itemize}
+    \item \textbf{Feedback in Regeneration}: The regeneration rates \( r_X \) are influenced by the compounds they help form, creating a self-reinforcing loop absent in classical models.
+    \item \textbf{Stability Bias}: Compounds with higher stability (\( S(C) \)) disproportionately affect the regeneration and interaction dynamics, skewing the system toward emergent patterns.
+    \item \textbf{Multi-Prey and Multi-Predator Interactions}: Compounds can act as predators that consume multiple base elements (prey), while also being prey for higher-order interactions.
+\end{itemize}
+
+\subsection{Implications for Emergent Patterns}
+
+The predator-prey analogy highlights:
+\begin{enumerate}
+    \item \textbf{Resource Constraints}: Persistent compounds stabilize by balancing consumption and regeneration, ensuring long-term survival in a resource-limited environment.
+    \item \textbf{Hierarchical Emergence}: The interplay between base elements and compounds creates a hierarchical system, with dominant compounds shaping the population dynamics of their constituent elements.
+    \item \textbf{Universal Applicability}: These principles extend beyond symbolic systems, providing insights into ecological networks, chemical reaction systems, and evolutionary dynamics.
+\end{enumerate}
+
+The predator-prey perspective complements the Bayesian and top-down causality interpretations, offering an alternative lens to understand the co-dependence of local interactions and global stability.
+
+\section{Incorporating Resources and Energy into Symbolic Systems}
+
+\subsection{Energy as a Limiting Factor in Interactions}
+
+In real-world systems, interactions between elements and the persistence of patterns are often constrained by the availability of energy. To incorporate this into the symbolic framework, we introduce an explicit energy model, where:
+\begin{itemize}
+    \item \textbf{Total Energy}: The system starts with an initial energy pool \( E(t) \), which is replenished at each generation by an external energy source.
+    \item \textbf{Energy for Interactions}: Each interaction consumes a fixed amount of energy proportional to the size of the compound formed.
+    \item \textbf{Energy Recycling}: Decaying compounds release a fraction of their energy back into the system, reflecting energy recycling dynamics.
+\end{itemize}
+
+\subsection{Mathematical Model for Energy Dynamics}
+
+The energy dynamics are modeled as follows:
+\begin{align}
+E(t+1) &= E(t) + \epsilon_{\text{replenish}} - \epsilon_{\text{interactions}} + \epsilon_{\text{recycled}}, \\
+\epsilon_{\text{interactions}} &= \sum_{i=1}^{N} \epsilon_{\text{cost}}(C_i), \\
+\epsilon_{\text{recycled}} &= \sum_{j=1}^{M} \gamma \cdot S(C_j),
+\end{align}
+where:
+\begin{itemize}
+    \item \( E(t) \): Total energy at generation \( t \).
+    \item \( \epsilon_{\text{replenish}} \): Energy added externally to the system at each generation.
+    \item \( \epsilon_{\text{interactions}} \): Energy consumed during interactions.
+    \item \( \epsilon_{\text{cost}}(C_i) \): Energy cost of forming compound \( C_i \), proportional to its size or complexity.
+    \item \( \epsilon_{\text{recycled}} \): Energy recycled from decaying compounds.
+    \item \( \gamma \): Fraction of stability \( S(C_j) \) recycled into usable energy.
+\end{itemize}
+
+\subsection{Resource Constraints on Regeneration}
+
+In addition to energy, resources are treated as a separate pool \( R(t) \), representing the raw materials needed to regenerate base elements and form compounds:
+\begin{align}
+R(t+1) &= R(t) + \rho_{\text{replenish}} - \rho_{\text{consumed}}, \\
+\rho_{\text{consumed}} &= \sum_{C} \lambda \cdot \text{size}(C),
+\end{align}
+where:
+\begin{itemize}
+    \item \( R(t) \): Total resources at generation \( t \).
+    \item \( \rho_{\text{replenish}} \): Resources replenished at each generation.
+    \item \( \rho_{\text{consumed}} \): Resources consumed during interactions, proportional to compound size.
+    \item \( \lambda \): Resource cost per unit of compound size.
+\end{itemize}
+
+\subsection{Energy and Resource Allocation for Patterns}
+
+Energy and resources are allocated based on compound stability \( S(C) \):
+\begin{align}
+\text{Energy Share } \epsilon(C) &= \frac{S(C)}{\sum_{C'} S(C')}, \\
+\text{Resource Share } \rho(C) &= \frac{S(C)}{\sum_{C'} S(C')}.
+\end{align}
+Compounds with higher stability are allocated a larger share, promoting their persistence and dominance in the population.
+
+\subsection{Emergent Dynamics with Energy and Resources}
+
+Adding energy and resources introduces new constraints and opportunities:
+\begin{enumerate}
+    \item \textbf{Resource Competition}: Compounds compete for limited resources and energy, favoring the most stable patterns.
+    \item \textbf{Energy Recycling}: The recycling of energy from decaying compounds creates a feedback loop, ensuring long-term sustainability of the system.
+    \item \textbf{Persistence of Stable Patterns}: Stability directly influences energy and resource allocation, reinforcing the dominance of persistent patterns.
+\end{enumerate}
+
+\subsection{Comparison to Real-World Systems}
+
+This model mirrors real-world phenomena:
+\begin{itemize}
+    \item \textbf{Biological Systems}: Energy and nutrient cycles in ecosystems are analogous to energy recycling and resource replenishment in the model.
+    \item \textbf{Chemical Systems}: Reaction networks depend on the availability of energy to form and break bonds, analogous to the energy costs of forming compounds.
+    \item \textbf{Information Systems}: Computational processes constrained by energy and resource availability exhibit similar dynamics, with stable patterns corresponding to persistent solutions.
+\end{itemize}
+
+\subsection{Implications for Stability and Complexity}
+
+The incorporation of energy and resources enhances the framework by:
+\begin{enumerate}
+    \item Providing a mechanism to regulate the balance between base elements and compounds.
+    \item Highlighting the role of external inputs in driving complexity and stability.
+    \item Offering insights into how energy constraints shape emergent behavior in both physical and abstract systems.
+\end{enumerate}
 
 
 
