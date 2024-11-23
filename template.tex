@@ -79,119 +79,109 @@ $^{1}$ \quad dan@danadler.com}
 
 \section{Introduction}
 
-This paper considers a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. These elements could exist in our physical universe, or in an abstract universe. Let's assume that the stability of compounds determines how many generations they will persist, and that the base elements regenerate. Over successive generations, the system undergoes a form of natural selection where compound stability, serving as a proxy for fitness, drives the evolution of the population. Frequency imbalances lead to the emergence of stable patterns, creating a dynamic that drives the population towards a low entropy state.
+This paper considers "ABC Systems" defined as follows: a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. These elements could exist in our physical universe, or in an abstract universe. The stability of compounds determines how many generations they will persist, and we assume the base elements regenerate. Over successive generations, the system undergoes a form of natural selection where compound stability drives the evolution of the population. ABC systems are governed by two distinct but interrelated probability distributions: The population distribution, reflecting the relative abundance of patterns in the system, and the stability distribution, representing the likelihood that interactions between patterns are successful and result in new, stable patterns. Together, these distributions determine the dynamics of the system, including the selection of stable patterns, their evolution over generations, and the emergent information encoded within the system.
 
 Consider a population of 3 elements: {A, B, C}. Assume B-compounds are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or A or C. Therefore, B-compounds will persist over multiple generations, while the others will quickly dissipate. The more stable B-compounds will interact more frequently due to their relative frequency, even without replication or inheritance. A simulation may look like this:
 
 \begin{figure}[htp]
     \centering
     \includegraphics[width=13cm]{pat_1}
-    \caption{ABC population histograms}
+    \caption{ABC System population evolution simulation}
     \label{fig:pat_1}
 \end{figure}
 
 Where is Maxwell's demon hiding in this example, driving it towards a low-entropy state? The answer lies in the roulette wheel. Compounds that persist longer have more chances to interact. As their frequency in the population grows, their chances to interact grow even more. In Evolutionary Dynamics, this is called fitness-proportionate selection or roulette wheel selection.
 
-\section{System Description and Dynamics}
-In the more general case, denote the population of elements as:
+\section{Dual Probability Distributions Governing ABC Systems}
+
+ABC systems can be effectively described by two interdependent probability distributions: the \textbf{population distribution}, which represents the relative abundance of patterns in the system, and the \textbf{stability distribution}, which quantifies the likelihood of successful interactions between patterns and the resulting stability of those interactions. These distributions interact to drive the system's dynamics, determining which patterns persist, dominate, or dissipate over time.
+
+The population distribution reflects the probabilities of patterns at any given generation \( t \). Let \( P(p_t) \) represent the probability of pattern \( p \) in the population at time \( t \):
 \[
-E = \{A, B, C, \dots\}.
+P(p_t) = \frac{N(p_t)}{\sum_{q \in P} N(q_t)},
 \]
-Each element \( X \) has a frequency \( f_X \), such that:
+where \( N(p_t) \) is the absolute count of pattern \( p \) in the population at time \( t \), and \( \sum_{q \in P} N(q_t) \) is the total population size at time \( t \), ensuring normalization (\( \sum_{p \in P} P(p_t) = 1 \)). The population distribution evolves over generations as patterns interact and new stable configurations emerge. As patterns with higher stability and frequent interactions become more prominent in the population, the population distribution evolves to reflects the history of past interactions and selection pressures.
+
+The stability distribution represents the likelihood of successful interactions between patterns \( p \) and \( q \). Let \( S(p, q) \) denote the stability of the interaction between \( p \) and \( q \), defined as:
 \[
-\sum_{X \in E} f_X = 1.
+S(p, q) = P(r | p, q),
 \]
+where \( P(r | p, q) \) is the conditional probability of forming pattern \( r \) as a result of the interaction between \( p \) and \( q \).
 
-Pairs (or higher-order combinations) of elements can form compounds \( C_{XY}, C_{XYZ}, \dots \), with stability \( S(C) \) as a defining property. Stability \( S(C) \) measures how long the compound persists before dissociation. At each generation, elements interact, forming compounds with probabilities influenced by their frequencies. Define the fitness \( F(C) \) of a compound as proportional to its stability \( S(C) \):
+Stability reflects inherent properties of the patterns such as physical proximity, strength of bonds, geometric compatibility, energy barriers, or interaction rules. Stability values vary for different pairs of patterns, influencing which interactions dominate the dynamics. While the population distribution evolves rapidly, the stability distribution remains constant or changes only gradually.
+
+\subsection{Combined Role of Population and Stability Distributions}
+
+The two distributions together govern the dynamics of the system. The probability of two patterns \( p \) and \( q \) interacting to form a new pattern \( r \) is proportional to their population probabilities and the stability of their interaction:
 \[
-F(C) = S(C).
+P(p_{t+1}) \propto P(p_t) \cdot \sum_{q \in P} P(q_t) \cdot S(p, q).
 \]
-Stable compounds persist longer and contribute more to the next generation's composition by dissociating into their constituent elements. The probability of forming a compound \( C_{XY} \) is proportional to:
+The continuous-time dynamics of the feedback system can be derived as a natural extension of the discrete update equation:
 \[
-P(C_{XY}) \propto f_X \cdot f_Y \cdot g(C_{XY}),
+\frac{dP(p, t)}{dt} \approx \alpha P(p, t) \cdot S_{\text{eff}},
 \]
-where \( g(C) \) is a function reflecting constraints such as geometry or energy barriers. More stable compounds contribute their elements back into the system with higher weights when they dissociate, biasing frequencies toward constituents of stable compounds. The frequency \( f_X^{(t+1)} \) at generation \( t+1 \) is updated as:
-\begin{equation}
-\label{eq1}
-f_X^{(t+1)} = \frac{\sum_{C \ni X} F(C) \cdot P(C)}{\sum_{X'} \sum_{C \ni X'} F(C) \cdot P(C)},
-\end{equation}
-where \( P(C) \) is the probability of forming \( C \) in the previous generation. Over time, elements involved in forming more stable compounds \( (C_{XY}, C_{XYZ}, \dots) \) will increase in frequency. Elements with initially low frequencies may be outcompeted if they fail to form stable compounds. The system self-organizes toward a distribution of elements and compounds that maximizes overall stability.
-
-Think of \( f_X \) as the relative "size" of \( X \)'s slot on the roulette wheel.
-At each generation, higher \( f_X \) increases the likelihood of \( X \)'s participation in compounds. Fitness \( F(C) \) amplifies the impact of stable compounds, effectively "rigging" the wheel in favor of elements contributing to stability.
-
-If \( F(C) \) and \( g(C) \) are constant, the system may converge to a stationary distribution \( f_X^* \), biased toward elements forming the most stable compounds. Initially random distributions \( f_X^{(0)} \) will evolve, reducing entropy as stable configurations dominate. The system exhibits a weak form of natural selection, where fitness is defined as stability rather than reproductive success.
-
-In this case, the system’s fitness function is stability or persistence, which acts as a filter for preserving certain compounds and their constituent elements. Stability preferences impose a constraint on the system, reducing randomness. Elements forming stable compounds are selected for. Their frequencies increase, encoding knowledge about which interactions are favorable. In effect, the system learns and retains information about the stability landscape, evolving toward configurations with higher stability and the population becomes more ordered, reflecting lower entropy (negentropy). The Shannon entropy \( H \) at generation \( t \) is defined as:
+where \( S_{\text{eff}} = \sum_{q \in P} P(q, t) \cdot S(p, q) \) is the effective stability of the pattern. Order is generated in the system through feedback-driven amplification of stable patterns. The probability of a pattern \( P(p, t) \) grows exponentially over time as a result of stabilizing interactions, following:
 \[
-H^{(t)} = -\sum_{X \in E} f_X^{(t)} \log f_X^{(t)}.
+P(p, t) \propto \exp(\alpha S_{\text{eff}} t),
 \]
-This measures the uncertainty or disorder in the system at generation \( t \). As the system evolves, the frequencies \( f_X^{(t)} \) are updated according to equation \eqref{eq1}. The evolution is biased toward elements involved in stable compounds, causing increased frequencies for elements in stable compounds, and reduced frequencies for elements in less stable or rarely formed compounds. This redistribution reduces entropy because high-probability elements dominate, concentrating the distribution, while low-probability elements contribute less, shrinking the uncertainty.
+where \( \alpha \) is the growth rate constant, and \( S_{\text{eff}} \) is the effective stability of the pattern. This exponential growth rapidly increases the dominance of stable patterns in the population.
 
-\subsection{Importance of Regeneration in Symbolic Systems}
-
-\subsubsection{Avoiding Extinction in Population Dynamics}
-
-In the absence of regeneration, the symbolic population tends to rapidly decline as base elements are consumed during interactions to form compounds. This creates a depletion cascade, where:
-\begin{enumerate}
-    \item Base elements \( X \in \{A, B, C, \ldots\} \) are continuously removed from the population as they participate in forming compounds \( C = AB, ABC, \ldots \).
-    \item Compounds themselves decay over time, further reducing the population size without replenishing the base elements.
-    \item Resource and energy constraints exacerbate this decline, as compounds fail to persist and contribute back to the system.
-\end{enumerate}
-
-Without an external mechanism to regenerate base elements, the system ultimately collapses, leading to extinction of the population. Regeneration is thus essential for sustaining the system across generations, ensuring a steady supply of base elements for ongoing interactions and compound formation.
-
-\subsubsection{Physical Interpretation of Regeneration}
-
-In physical systems, the regeneration of base symbols can be interpreted as the replenishment of fundamental building blocks through natural processes. Examples include:
-\begin{itemize}
-    \item \textbf{Atomic Systems}: Atoms or ions participating in chemical reactions can be regenerated by environmental processes such as diffusion or external inputs of reactive species.
-    \item \textbf{Subatomic Particles}: Electrons in plasma systems can be regenerated through ionization or recombination processes, maintaining the particle population.
-    \item \textbf{Energy Redistribution}: In ecosystems, energy flows from sunlight or chemical gradients provide the means for regenerating fundamental nutrients and resources.
-\end{itemize}
-
-In abstract systems, regeneration might represent:
-\begin{itemize}
-    \item \textbf{Data Initialization}: Reintroduction of lost or unused data elements to maintain diversity in computational systems.
-    \item \textbf{Symbolic Restoration}: Replenishing foundational elements in symbolic or linguistic systems to sustain iterative processes.
-\end{itemize}
-
-\subsubsection{Regeneration in the Model}
-
-To capture these dynamics, the symbolic framework includes a regeneration rate \( r_X \) for each base element \( X \), expressed as:
-\begin{equation}
-r_X(t+1) = r_X(t) + \rho_{\text{external}},
-\end{equation}
-where \( \rho_{\text{external}} \) is the external regeneration input per generation. This ensures a steady influx of base elements, enabling:
-\begin{enumerate}
-    \item \textbf{System Sustainability}: Preventing population collapse by replenishing consumed elements.
-    \item \textbf{Dynamic Balance}: Allowing interactions to continue by maintaining a sufficient pool of base elements.
-    \item \textbf{Pattern Evolution}: Supporting the emergence of stable patterns by providing the raw materials for compound formation.
-\end{enumerate}
-
-
-\subsection{Catalysis}
-
-Other fitness criteria could also create frequency imbalances and drive the emergence of order and dominance in populations. These criteria depend on the specific system but share the common feature of amplifying certain elements or compounds based on measurable properties. Catalysis is one such example. Let's explore a system where \( A \) interacts with \( B \) to form a compound \( C_{AB} \), but this interaction occurs only in the presence of a catalyst \( D \). The catalyst \( D \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. We aim to show that this setup creates selection pressure for \( D \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( D \) facilitates the reaction by increasing its likelihood:
+In contrast, random processes and stochastic fluctuations redistribute probabilities in the system, contributing to an increase in entropy. The degradation of order due to these random effects is characterized by a slower logarithmic growth in entropy:
 \[
-P(A + B \to C_{AB} \mid D) \propto f_A \cdot f_B \cdot f_D.
+\Delta H \propto \ln(t).
+\]
+As time progresses, the competition between the exponential growth of stable patterns and the logarithmic increase in entropy becomes evident. The net result is that the exponential growth of order, driven by stabilizing feedback and represented as \( \exp(\alpha S_{\text{eff}} t) \), outpaces the entropy increase \( \ln(t) \). This ensures that stability-driven feedback creates a net reduction in entropy, leading the system toward a more ordered, low-entropy state. Over time, the dominance of stable patterns suppresses randomness, driving the system into configurations characterized by emergent complexity and order.
+
+This analysis demonstrates how stability-driven interactions in local populations generate order faster than the second law of thermodynamics can degrade it. While random fluctuations tend to increase entropy, the exponential reinforcement of stable patterns creates a net reduction in entropy, leading to emergent order. The dynamics also highlight the competitive nature of the system: only patterns with sufficiently high stability and effective interaction networks survive over the long term, ensuring the self-organization of the population into ordered configurations.
+
+\section{Catalysis}
+
+Consider an ABC system where \( A \) interacts with \( B \) to form a compound \( AB \), but this interaction occurs only in the presence of a catalyst \( C \). The catalyst \( C \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. This creates selection pressure for \( C \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( C \) facilitates the reaction by increasing its likelihood:
+\[
+P(A + B \to AB \mid C) \propto p_A \cdot p_B \cdot p_C.
 \]
 
-The presence of \( D \) influences the formation rate of \( C_{AB} \), indirectly affecting the frequencies of \( A, B, \) and \( D \) through the dissociation of \( C_{AB} \):
-\begin{align*}
-f_A^{(t+1)} &= f_A^{(t)} + \alpha \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}, \\
-f_B^{(t+1)} &= f_B^{(t)} + \alpha \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}, \\
-f_D^{(t+1)} &= f_D^{(t)} + \beta \cdot F(C_{AB}) \cdot f_A^{(t)} \cdot f_B^{(t)} \cdot f_D^{(t)}.
-\end{align*}
-where \( \alpha \) is the proportionality constant for reactants, and \( \beta \) is the contribution of \( D \) from catalysis.
+The catalyst \( C \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system.
 
-Although \( D \) is not consumed in the reaction, its presence enables the formation of \( C_{AB} \), which dissociates and contributes to \( f_D \):
+\section{Interpreting Interactions as Logic Gates in ABC Systems}
+
+ABC systems can be interpreted as encoding logical operations through their interactions, with patterns and their combinations acting as inputs and outputs of logical gates. Catalysis, a common feature in chemical systems, further reinforces this interpretation, as catalysts act as conditional enablers for specific reactions. This section explores how interactions in ABC systems can be mapped to logical operations and how catalytic behaviors correspond to logical gates or conditional statements.
+
+\subsection{Interactions as Logical Operations}
+
+In an ABC system, the combination of patterns can represent logical relationships. For instance, the interaction \( A + B \to AB \) can be interpreted as a logical AND operation, where \( AB \) is produced only if both \( A \) and \( B \) are present. The probabilities of patterns encode their logical "truth values," with higher probabilities corresponding to "true" states and lower probabilities corresponding to "false" states. We already showed that interaction \( A + B \to AB \) can be expressed as:
 \[
-f_D^{(t+1)} > f_D^{(t)} \quad \text{if } f_A \cdot f_B \cdot F(C_{AB}) > \text{threshold}.
+P(AB) = P(A) \cdot P(B) \cdot S(AB),
 \]
-This creates selection pressure for \( D \), as its persistence increases the system's ability to form stable \( C_{AB} \), reinforcing its own frequency. The catalyst \( D \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system, and the resulting higher fitness compounds contribute to \( f_D \), creating a positive feedback loop. Over successive generations, elements \( A \) and \( B \) rely on \( D \) to form \( C_{AB} \) and the system selects for \( D \), even if its own stability is low, because it amplifies the system's stability.
+where \( S(AB) \) is the Stability. This is analogous to the AND operation in logic, where the output is true only if both inputs are true. Similarly, the OR operation can be represented as the dominance of either \( A \) or \( B \), given by:
+\[
+P(A \lor B) = P(A) + P(B) - P(A) \cdot P(B).
+\]
+The logical NOT operation corresponds to the absence of a pattern, represented as:
+\[
+P(\neg A) = 1 - P(A).
+\]
+These interactions collectively encode basic logical operations, enabling the system to process and store information in a manner analogous to digital logic.
 
-This catalytic framework demonstrates how an element that facilitates reactions, without directly participating in the products, can experience selection pressure. The persistence of \( D \) arises from its indirect contribution to the system's fitness by enabling the formation of stable compounds which decrease the system's entropy.
+\subsection{Catalysis as Conditional Logic}
+
+In the context of ABC systems, a catalyst \( C \) facilitating the reaction \( A + B \to AB \) can be interpreted as a conditional statement or a logical gate. The presence of \( C \) determines whether the reaction occurs, making it analogous to the logical "if" condition: "If \( C \), then \( A + B \to AB \)."
+This behavior maps directly to the conditional logic often found in programming and computation. In terms of probability, the catalyzed interaction can be expressed as:
+\[
+P(AB | C) \propto P(A) \cdot P(B) \cdot S(A, B | C),
+\]
+where \( S(A, B | C) \) represents the stability of the interaction in the presence of the catalyst \( C \).
+
+Catalysts can also be compared to the gate of a transistor in an electronic circuit. Just as a transistor gate controls the flow of current between its source and drain, a catalyst \( C \) controls the occurrence of the reaction \( A + B \to AB \). The analogy extends to the amplification effect: a small amount of \( C \) can enable significant interaction between \( A \) and \( B \), similar to how a small gate voltage modulates a larger current.
+
+Additionally, catalysts can encode more complex logical gates. For example, a two-step catalysis process \( C_1 \) and \( C_2 \) enabling \( A + B \to AB \) and \( AB + C \to ABC \) respectively corresponds to a sequential logic operation:
+\[
+\text{IF } C_1, \text{ THEN } A + B \to AB, \quad \text{AND IF } C_2, \text{ THEN } AB + C \to ABC.
+\]
+Such catalytic networks can encode conditional logic akin to nested IF statements in programming or complex gates in digital logic circuits. 
+
+Interactions in ABC systems can be interpreted as logical operations, with catalysts playing the role of conditional gates or enabling mechanisms. This mapping reveals a computational aspect of such systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
+
 
 \section{Mixing Two Populations: Opportunities for Crossover and Symbiosis}
 
