@@ -134,7 +134,7 @@ As time progresses, the competition between the exponential growth of stable pat
 
 This analysis demonstrates how stability-driven interactions in local populations generate order faster than the second law of thermodynamics can degrade it. While random fluctuations tend to increase entropy, the exponential reinforcement of stable patterns creates a net reduction in entropy, leading to emergent order. The dynamics also highlight the competitive nature of the system: only patterns with sufficiently high stability and effective interaction networks survive over the long term, ensuring the self-organization of the population into ordered configurations.
 
-\section{Catalysis}
+\subsection{Catalysis}
 
 Consider an ABC system where \( A \) interacts with \( B \) to form a compound \( AB \), but this interaction occurs only in the presence of a catalyst \( C \). The catalyst \( C \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. This creates selection pressure for \( C \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( C \) facilitates the reaction by increasing its likelihood:
 \[
@@ -181,6 +181,135 @@ Additionally, catalysts can encode more complex logical gates. For example, a tw
 Such catalytic networks can encode conditional logic akin to nested IF statements in programming or complex gates in digital logic circuits. 
 
 Interactions in ABC systems can be interpreted as logical operations, with catalysts playing the role of conditional gates or enabling mechanisms. This mapping reveals a computational aspect of such systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
+
+\section{Generating Cellular Automata Rules in ABC Systems}
+
+ABC systems, with their interaction-driven dynamics and stability-based selection, can be extended to generate behavior analogous to cellular automata (CA). By carefully defining interaction rules and stability imbalances, ABC systems can mimic specific CA rules, including those capable of producing complex behavior. This section demonstrates how stability imbalances in an ABC system can emulate one of Wolfram’s elementary cellular automata rules and explores the mechanisms by which these systems transition into computational models.
+
+\subsection{Mapping ABC Systems to Cellular Automata}
+
+Cellular automata operate on discrete states, where the next state of a cell depends on its current state and the states of its neighbors. Similarly, ABC systems evolve based on the interactions and stabilities of patterns in the population. By associating patterns in the ABC system with the states of a CA, and interactions with transition rules, we can map ABC dynamics to CA behavior.
+
+\subsection{Stability Imbalances as Transition Rules}
+
+In ABC systems, the stability of interactions \( S(p, q) \) determines the likelihood of forming new patterns. To emulate a specific CA rule, we assign stability imbalances that prioritize the creation of patterns corresponding to the rule’s outputs. For instance, if the CA rule specifies that a cell becomes "active" when one or both neighbors are active, we increase the stability of interactions that encode this outcome.
+
+Let us consider an example with patterns \( A, B, C \), where \( A, B, C \) correspond to states in a 1D CA. We define stability imbalances such that:
+\[
+S(A, B) = 0.8, \quad S(A, C) = 0.2, \quad S(B, C) = 0.5,
+\]
+and these interactions map to the CA rule for determining the next state of a cell based on its neighbors.
+
+\subsection{Example: Wolfram’s Rule 30}
+
+Wolfram’s Rule 30 is a well-known elementary CA rule producing complex behavior. The rule specifies the following transition table:
+\[
+\begin{array}{ccc|c}
+\text{Left} & \text{Center} & \text{Right} & \text{Next State} \\
+1 & 1 & 1 & 0 \\
+1 & 1 & 0 & 0 \\
+1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 1 \\
+0 & 1 & 0 & 1 \\
+0 & 0 & 1 & 1 \\
+0 & 0 & 0 & 0 \\
+\end{array}
+\]
+This can be encoded in an ABC system by associating the states of cells with patterns and defining stability imbalances to favor interactions that generate the correct next state. For example:
+\begin{itemize}
+    \item Define \( A, B, C \) as the current states of left, center, and right cells, respectively.
+    \item Use stability imbalances to prioritize outcomes matching the rule. For instance:
+    \[
+    S(A, B) = 0.9 \text{ if } A = 1, B = 1; \quad S(B, C) = 0.7 \text{ if } B = 1, C = 0.
+    \]
+\end{itemize}
+
+\subsection{Simulation of Rule 30 in an ABC System}
+
+To simulate Rule 30, we initialize the ABC system with patterns corresponding to the initial state of the CA and allow it to evolve according to the stability-driven dynamics. For example:
+\begin{enumerate}
+    \item Initialize the system with a random distribution of \( A, B, C \) (e.g., \( 101100110 \)).
+    \item Define interaction rules such as \( A + B \to AB \), with stability imbalances reflecting Rule 30’s transition table.
+    \item Allow the system to iterate, updating patterns based on the outcomes of interactions.
+\end{enumerate}
+
+At each iteration, the patterns \( AB, BC, \) etc., encode the next generation of the CA. The emergent dynamics will reflect the behavior of Rule 30, with complex patterns arising over successive generations.
+
+\subsection{Implications for Emergent Complexity}
+
+This mapping demonstrates that ABC systems can encode and simulate cellular automata, bridging the gap between chemical-like systems and computational models. Stability imbalances provide a natural mechanism for implementing transition rules, while interaction-driven evolution ensures the system retains flexibility and adaptability. The ability of ABC systems to replicate CA behavior highlights their potential for emergent computation and complex pattern formation.
+
+\section{Bayesian Updating in ABC Systems}
+
+ABC systems highlight a key distinction between Bayesian updating and frequentist probabilities, illustrating their respective roles in evolving versus static systems. Bayesian updating provides a dynamic framework for incorporating new information over time, making it a hallmark of systems capable of evolution and self-organization. Frequentist probabilities, on the other hand, describe point-in-time static distributions, lacking the temporal adaptability intrinsic to evolutionary dynamics.
+
+In ABC systems, the probability of a pattern \( p \) at generation \( t+1 \) depends on its prior probability \( P(p_t) \), the probabilities of other patterns \( P(q_t) \), and the stability of their interactions \( S(p, q) \). The update rule can be expressed as:
+\[
+P(p_{t+1}) = \frac{P(p_t) \cdot \sum_{q \in P} P(q_t) \cdot S(p, q)}{\sum_{p' \in P} P(p'_t) \cdot \sum_{q \in P} P(q_t) \cdot S(p', q)},
+\]
+where the numerator reflects the likelihood of \( p \) persisting or forming through interactions, and the denominator ensures normalization of probabilities. This is analogous to the Bayesian formula:
+\[
+P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)},
+\]
+where:
+\begin{itemize}
+    \item \( H \): Hypothesis (\( p \) as a pattern in the system).
+    \item \( E \): Evidence (interactions \( q \) and their stabilities \( S(p, q) \)).
+    \item \( P(H) \): Prior probability (\( P(p_t) \)).
+    \item \( P(E|H) \): Likelihood (\( \sum_{q \in P} P(q_t) \cdot S(p, q) \)).
+    \item \( P(H|E) \): Posterior probability (\( P(p_{t+1}) \)).
+\end{itemize}
+
+This iterative Bayesian updating process allows ABC systems to adapt and encode new information dynamically. The system continuously adjusts pattern probabilities to reflect the effects of interactions and stability constraints, resulting in emergent complexity and self-organization.
+
+In contrast, frequentist probabilities describe the static relative frequencies of patterns at a single time step. The explicit application of Bayesian updating in ABC systems underscores its importance as a hallmark of evolutionary processes.
+
+\section{Emergent Information vs. Pre-Designed Information in ABC Systems}
+
+ABC systems provide a natural framework for exploring the distinction between emergent and pre-designed information. The ability of these systems to evolve patterns and mimic computational processes, such as logic gates and cellular automata (CA), highlights the role of feedback, stability imbalances, and selection pressure in generating information. This stands in contrast to systems where information is externally imposed, such as 3D-printed patterns.
+
+\subsection{Emergent Information in ABC Systems}
+
+Emergent information arises naturally from the interactions and feedback loops within a system. In ABC systems:
+\begin{itemize}
+    \item \textbf{Patterns evolve dynamically}: Stable patterns persist and dominate over time through iterative interactions, encoding the history of the system.
+    \item \textbf{Selection pressure guides evolution}: Stability imbalances and probabilistic feedback ensure that only certain configurations persist, driving the system toward lower-entropy, information-rich states.
+    \item \textbf{No predefined outcomes}: The system explores a vast configuration space, with the resulting patterns depending on initial conditions, interaction rules, and stability constraints.
+\end{itemize}
+For example, an ABC system can evolve to mimic CA rules, such as Wolfram’s Rule 30, through stability imbalances. These patterns encode logical rules that emerge purely from system dynamics, without external input specifying the desired outcome.
+
+\subsection{Pre-Designed Information in 3D-Printed Systems}
+
+In contrast, pre-designed systems, such as 3D-printed compounds or pre-programmed circuits, rely on external inputs to define their structure and function:
+\begin{itemize}
+    \item \textbf{Information is imposed externally}: Patterns are directly specified by a designer or blueprint, with no reliance on system dynamics for their creation.
+    \item \textbf{No evolutionary process}: The system does not explore configuration space; instead, it is constructed to achieve a predefined state.
+    \item \textbf{Fixed outcomes}: The resulting patterns are static, with no capacity for adaptation or self-organization.
+\end{itemize}
+For instance, a 3D-printed version of Rule 30 would replicate the CA’s behavior exactly as designed, without any intermediate steps or emergent dynamics.
+
+\subsection{A Hypothesis for Defining Pre-Designed Systems}
+
+The contrast between emergent and pre-designed systems suggests a potential criterion for determining whether a system is pre-designed: the presence or absence of an evolutionary process. A system could be defined as pre-designed if:
+\begin{itemize}
+    \item Its configuration is entirely specified by external inputs.
+    \item It lacks path dependency, with no evidence of intermediate states or evolutionary history.
+    \item Its entropy dynamics are static or pre-determined, rather than dynamically evolving.
+\end{itemize}
+
+\subsection{Speculation: Toward a Framework for Detecting Pre-Designed Systems}
+
+The ability of ABC systems to evolve patterns and encode information through feedback and stability imbalances highlights the possibility of distinguishing emergent and pre-designed systems based on their evolutionary behavior. This may provide a path toward defining whether a system is pre-designed. If a system displays emergent properties such as dynamic adaptation, path dependency, and entropy reduction, it likely evolves internally. Conversely, systems that lack these properties and achieve order without intermediate steps or feedback are more likely to be pre-designed.
+
+This distinction could have profound implications for understanding natural systems, artificial constructs, and the origins of complex information in physical and computational systems. For instance, it may offer insights into distinguishing abiotic evolution from engineered systems, or identifying the hallmark features of life-like behavior in prebiotic chemistry.
+
+Deep learning systems lie on a continuum between pre-designed systems and fully emergent ones:
+\begin{itemize}
+    \item \textbf{Pre-Designed Systems}: 3D-printed systems or fixed-rule systems, where the outcomes are entirely determined by external inputs.
+    \item \textbf{Guided Evolution}: Deep learning systems, where evolution-like processes occur under strong external guidance and predefined constraints.
+    \item \textbf{Emergent Evolution}: ABC systems, where patterns evolve through internal dynamics, with no externally imposed outcomes.
+\end{itemize}
 
 
 \section{Mixing Two Populations: Opportunities for Crossover and Symbiosis}
