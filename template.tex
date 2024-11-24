@@ -139,7 +139,7 @@ The continuous-time dynamics of the feedback system can be derived as a natural 
 \[
 \frac{dP(p, t)}{dt} \approx \alpha P(p, t) \cdot S_{\text{eff}},
 \]
-where \( S_{\text{eff}} = \sum_{q \in P} P(q, t) \cdot S(p, q) \) is the effective stability of the pattern. Order is generated in the system through feedback-driven amplification of stable patterns. The probability of a pattern \( P(p, t) \) grows exponentially over time as a result of stabilizing interactions, following:
+where \( S_{\text{eff}} = \sum_{q \in P} P(q, t) \cdot S(p, q) \) is the effective stability of the pattern. Order is generated in the system through feedback-driven amplification of stable patterns. Solving this differential equation, we see that the probability of a pattern \( P(p, t) \) grows exponentially over time as a result of stabilizing interactions:
 \[
 P(p, t) \propto \exp(\alpha S_{\text{eff}} t),
 \]
@@ -348,7 +348,9 @@ ABC systems provide a unique framework for exploring the interplay between top-d
 
 Bottom-up causality is evident in the formation of patterns through probabilistic interactions and selection pressures. Local rules, such as compound stability or reaction probabilities, drive the evolution of patterns, creating stability and reducing entropy. Simultaneously, top-down causality manifests in feedback loops, where stable patterns persisting across generations influence future interactions. For instance, a dominant compound like \( AB \) biases subsequent interactions, catalyzing the formation of related patterns and introducing a higher-level influence over bottom-up processes.
 
-This co-dependence suggests that neither top-down nor bottom-up dynamics alone can explain complexity. ABC systems highlight how emergent patterns dynamically impose top-down constraints, which in turn stabilize and refine bottom-up processes. By abstracting specific physical laws, ABC systems offer a generalizable model for causality in complex systems, bridging abiotic and biotic evolution. This perspective has broad implications for understanding the emergence of order and information across natural and computational systems.
+Unlike the traditional statistical mechanics framework, which focuses on the relationship between microstates and macrostates, ABC systems provide an explicit mechanism for how macrostates emerge and influence microstates dynamically. In statistical mechanics, macrostates are often treated as convenient descriptors of aggregate behaviors derived from microstate probabilities \cite{landau1980statistical}. However, they are not inherently capable of feedback. In contrast, in ABC systems, the dominant patterns that emerge (analogous to macrostates) actively constrain and shape micro-level interactions (microstates), introducing a dynamic feedback loop. This process embeds memory and evolutionary history into the system, something absent in classical treatments of statistical mechanics. Moreover, while statistical mechanics typically relies on pre-defined energy distributions and thermodynamic equilibria, ABC systems abstract these specifics and focus on probabilistic interaction dynamics governed by stability and selection pressures.
+
+By abstracting away specific physical laws, ABC systems provide a generalizable model for studying causality in complex systems. The insights gained from these systems suggest that the emergence of order and information in the universe may be better understood as a dynamic interplay between top-down and bottom-up processes, rather than being driven solely by one or the other. This perspective has implications for understanding natural phenomena, from prebiotic evolution to the dynamics of computational and informational systems.
 
 
 %\begin{listing}[H]
@@ -473,6 +475,9 @@ McGrayne, S.B. \textit{The Theory That Would Not Die: How Bayes' Rule Cracked th
 
 \bibitem{kauffman2000investigations}
 Kauffman, S. \textit{Investigations}; Oxford University Press: New York, NY, USA, 2000.
+
+\bibitem{landau1980statistical}
+Landau, L. D., Lifshitz, E. M. \textit{Statistical Physics}; Pergamon Press, 1980.
 
 \end{thebibliography}
 
