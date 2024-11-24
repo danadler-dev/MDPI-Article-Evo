@@ -172,6 +172,13 @@ Let two independently evolved ABC systems \( P_1 \) and \( P_2 \) represent popu
 
 When the two systems are mixed, the patterns from \( P_1 \) and \( P_2 \) interact, allowing the formation of cross-system compounds (e.g., \( ABX, XYZ \)). Stability constraints extend to cross-system interactions, introducing new terms \( S(p, q) \) where \( p \in P_1 \) and \( q \in P_2 \). The joint system evolves based on updated probabilities reflecting both within-system and cross-system interactions.
 
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=13cm]{mixed_1}
+    \caption{Mixing two evolved populations}
+    \label{fig:mixed_1}
+\end{figure}
+
 \subsection{Entropy Dynamics in Mixed Systems}
 
 After mixing, the joint entropy \( H_{\text{mix}}(t) \) becomes:
@@ -180,23 +187,11 @@ H_{\text{mix}}(t) = -\sum_{p \in P_1 \cup P_2} P(p_t) \ln P(p_t),
 \]
 where \( P(p_t) \) now includes probabilities of cross-system patterns.
 
-\paragraph{Case 1: Systems with Low Entropy Before Mixing}
 If both \( P_1 \) and \( P_2 \) are in low-entropy states, characterized by dominance of stable patterns, the mixed system is likely to retain a low entropy. The interaction of well-organized patterns results in selective formation of cross-system compounds, reinforcing order.
 
-\paragraph{Case 2: Systems with High Entropy Before Mixing}
 If either \( P_1 \) or \( P_2 \) has high entropy, the mixing introduces randomness into the more ordered system. Cross-system interactions may lead to transient increases in entropy, but selection pressures favoring stable compounds can gradually reduce entropy in subsequent generations.
 
-\paragraph{Case 3: Systems with Complementary Patterns}
 When \( P_1 \) and \( P_2 \) have complementary patterns (e.g., \( P_1 \) lacks certain patterns that \( P_2 \) provides), mixing can generate new stable configurations that reduce entropy more effectively than in isolated systems. For instance, if \( P_1 = \{A, B\} \) and \( P_2 = \{X, Y\} \), the formation of \( ABX, BY, AX \) introduces novel low-entropy configurations.
-
-\subsection{Emergent Behavior in Mixed Systems}
-
-Mixing two ABC systems facilitates information flow and alters entropy dynamics, providing a powerful framework for studying interaction-driven complexity. The interplay between low-entropy patterns and cross-system interactions highlights the capacity of mixed systems to generate emergent order. By analyzing information flow and entropy changes, we gain insights into the mechanisms driving the evolution of coupled systems and the emergence of novel configurations. The mixing of two systems creates opportunities for emergent behavior:
-\begin{itemize}
-    \item \textbf{Novel Compounds}: Cross-system interactions lead to the formation of patterns like \( ABX \) that do not exist in either system independently.
-    \item \textbf{Crossover Effects}: Patterns from one system stabilize or destabilize patterns in the other, modifying evolutionary trajectories.
-    \item \textbf{Symbiosis}: Feedback loops between patterns in \( P_1 \) and \( P_2 \) can reinforce mutual stability, leading to new equilibrium states.
-\end{itemize}
 
 
 \section{Interpreting Interactions as Logic Gates in ABC Systems}
