@@ -81,7 +81,7 @@ $^{1}$ \quad dan@danadler.com}
 
 \section{Introduction}
 
-The study of evolution, complexity, and information has long been a cornerstone of multiple scientific disciplines, bridging physics, biology, and computation. Foundational works such as Schrödinger's \textit{What is Life?} \cite{schrodinger1944life} posed fundamental questions about how order emerges from disorder, inspiring theoretical explorations of how physical laws govern the emergence of biological systems. Similarly, Tegmark's \textit{Mathematical Universe Hypothesis} \cite{tegmark2008mathematical} posits that the universe itself is a mathematical structure, where physical phenomena are manifestations of abstract mathematical rules. These works frame the question of complexity but often leave the detailed mechanisms of emergence unaddressed.
+The study of evolution, complexity, and information has long been a cornerstone of multiple scientific disciplines, bridging physics, biology, and computation. Foundational works such as Schrödinger's \textit{What is Life?} \cite{schrodinger1944life} posed fundamental questions about how order emerges from disorder, inspiring theoretical explorations of how physical laws govern the emergence of biological systems. Similarly, Tegmark's \textit{Mathematical Universe Hypothesis} \cite{tegmark2008mathematical} posits that the universe itself is a mathematical structure, where physical phenomena are manifestations of abstract mathematical rules. These works frame the question of complexity but leave the mechanisms of emergence unaddressed.
 
 In the realm of evolutionary dynamics, Nowak's seminal text \textit{Evolutionary Dynamics} \cite{nowak2006evolutionary} provides rigorous mathematical models that describe the mechanisms of replication, mutation, and selection. While these models illuminate the principles of biological evolution, they assume the existence of self-replicating entities and do not delve into how such entities might arise from purely abiotic processes. Similarly, Wheeler's concept of "It from Bit" \cite{wheeler1990itbit} intriguingly suggests that information underpins the physical world, but it lacks a concrete mechanism for how information structures form and evolve.
 
@@ -89,18 +89,15 @@ Dennis Noble's work on top-down causality \cite{noble2012causality} emphasizes t
 
 Algorithmic complexity \cite{kolmogorov1965complexity} \cite{chaitin1977algorithmic} \cite{solomonoff1964formal} and Shannon’s information theory \cite{shannon1948mathematical} provide powerful tools for quantifying information and complexity but do not explain how information is created or evolves within physical systems. These frameworks focus on static measures of complexity, often missing the dynamic interplay between interactions and selection that drives the formation of ordered structures.
 
-The approach proposed in this paper distinguishes itself by focusing on ABC systems, which offer an explicit, abstract model for the emergence of complexity and information. Unlike prior work that remains tied to specific physical systems or abstract concepts without implementation pathways, ABC systems provide a mechanism for how stable patterns arise, evolve, and persist based solely on probabilistic interactions and stability constraints. By abstracting out the specific physics of the system, ABC systems offer a universal framework applicable to a wide range of phenomena, from chemical interactions to computational models.
+This paper introduces "ABC systems" which offer an abstract model for the emergence of complexity and information. Unlike prior work tied to physical systems or abstract concepts without implementation pathways, ABC systems provide a mechanism for how stable patterns arise, evolve, and persist based solely on probabilistic interactions and stability constraints. By abstracting out the specific physics of the system, ABC systems offer a universal framework applicable to a wide range of phenomena, from chemical interactions to computational models.
 
-In contrast to Wheeler’s "It from Bit," which lacks a generative mechanism, ABC systems demonstrate how information structures emerge dynamically through selection pressures. Unlike evolutionary dynamics as formulated by Nowak, which assumes pre-existing replicators, ABC systems show how stable, self-replicating patterns can arise from purely abiotic interactions. Furthermore, the framework of ABC systems provides a path to connect the abstract ideas of Lloyd and Tegmark with practical, realizable dynamics, where probabilistic interactions evolve into ordered patterns encoding information.
-
-This paper advances the field by demonstrating how the principles of stability-driven selection, feedback, and interaction probabilities can generate complexity and information in a way that bridges abiotic and biotic systems. By providing a detailed mechanism for the emergence of order, this work extends prior theories into a practical and computationally realizable framework.
-
+In contrast to Deutch \& Marletto's Constructor Theory \cite{deutsch2013constructor}, which lacks a generative mechanism, ABC systems demonstrate how information structures emerge dynamically through selection pressures. Unlike evolutionary dynamics as formulated by Nowak, which assumes pre-existing replicators, ABC systems show how stable, self-replicating patterns can arise from purely abiotic interactions. Furthermore, the framework of ABC systems provides a path to connect the abstract ideas of Lloyd and Tegmark with practical, realizable dynamics, where probabilistic interactions evolve into ordered patterns encoding information.
 
 \section{ABC System Fundamentals}
 
-This paper considers "ABC Systems" defined as follows: a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. These elements could exist in our physical universe, or in an abstract universe. The stability of compounds determines how many generations they will persist, and we assume the base elements regenerate. Over successive generations, the system undergoes a form of natural selection where compound stability drives the evolution of the population. ABC systems are governed by two distinct but interrelated probability distributions: The population distribution, reflecting the relative abundance of patterns in the system, and the stability distribution, representing the likelihood that interactions between patterns are successful and result in new, stable patterns. Together, these distributions determine the dynamics of the system, including the selection of stable patterns, their evolution over generations, and the emergent information encoded within the system.
+We define "ABC Systems" as follows: a population of elements \( A, B, C, \dots \) capable of forming compounds through local interactions of unspecified forces. These elements could exist in our physical universe, or in an abstract universe. The stability of compounds determines how many generations they will persist, and we assume the base elements regenerate. Over successive generations, the system undergoes a form of natural selection where compound stability drives the evolution of the population. ABC systems are governed by two distinct but interrelated probability distributions: The population distribution, reflecting the relative abundance of patterns in the system, and the stability distribution, representing the likelihood that interactions between patterns are successful and result in new, stable patterns. Together, these distributions determine the dynamics of the system, including the selection of stable patterns, their evolution over generations, and the emergent information encoded within the system.
 
-Consider a population of 3 elements: {A, B, C}. Assume B-compounds are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or A or C. Therefore, B-compounds will persist over multiple generations, while the others will quickly dissipate. The more stable B-compounds will interact more frequently due to their relative frequency, even without replication or inheritance. A simulation may look like this:
+Consider a simple population of 3 elements: {A, B, C}. Assume B-compounds are more stable than those without B. Thus AB, BC, ABC, have a higher stability than AC or A or C. Therefore, B-compounds will persist over multiple generations, while the others will quickly dissipate. The more stable B-compounds will interact more frequently due to their relative frequency, even without replication or inheritance. A simulation may look like this:
 
 \begin{figure}[htp]
     \centering
@@ -131,15 +128,15 @@ Stability reflects inherent properties of the patterns such as physical proximit
 
 \subsection{Combined Role of Population and Stability Distributions}
 
-The two distributions together govern the dynamics of the system. The probability of two patterns \( p \) and \( q \) interacting to form a new pattern \( r \) is proportional to their population probabilities and the stability of their interaction:
+The two distributions together determine the dynamics of the system. The probability of two patterns \( p \) and \( q \) interacting to form a new pattern \( r \) is proportional to their population probabilities and the stability of their interaction:
 \[
 P(p_{t+1}) \propto P(p_t) \cdot \sum_{q \in P} P(q_t) \cdot S(p, q).
 \]
 The continuous-time dynamics of the feedback system can be derived as a natural extension of the discrete update equation:
 \[
-\frac{dP(p, t)}{dt} \approx \alpha P(p, t) \cdot S_{\text{eff}},
+\frac{dP(p, t)}{dt} \propto \alpha P(p, t) \cdot S_{\text{eff}},
 \]
-where \( S_{\text{eff}} = \sum_{q \in P} P(q, t) \cdot S(p, q) \) is the effective stability of the pattern. Order is generated in the system through feedback-driven amplification of stable patterns. Solving this differential equation, we see that the probability of a pattern \( P(p, t) \) grows exponentially over time as a result of stabilizing interactions:
+where \( S_{\text{eff}} = \sum_{q \in P} P(q, t) \cdot S(p, q) \) is the effective stability of the pattern. Order is generated in the system through feedback-driven amplification of stable patterns. Solving this equation, we see that the probability of a pattern \( P(p, t) \) grows exponentially over time as a result of stabilizing interactions:
 \[
 P(p, t) \propto \exp(\alpha S_{\text{eff}} t),
 \]
@@ -160,7 +157,7 @@ Consider an ABC system where \( A \) interacts with \( B \) to form a compound \
 P(A + B \to AB \mid C) \propto p_A \cdot p_B \cdot p_C.
 \]
 
-The catalyst \( C \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system.
+The catalyst \( C \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system. This means we can expect a higher probability of \( C \) in later generations, even though it does not directly form stable compounds.
 
 \section{Mixing Two ABC Systems: Entropy Dynamics}
 
@@ -196,10 +193,6 @@ When \( P_1 \) and \( P_2 \) have complementary patterns (e.g., \( P_1 \) lacks 
 
 \section{Interpreting Interactions as Logic Gates in ABC Systems}
 
-ABC systems can be interpreted as encoding logical operations through their interactions, with patterns and their combinations acting as inputs and outputs of logical gates. Catalysis, a common feature in chemical systems, further reinforces this interpretation, as catalysts act as conditional enablers for specific reactions. This section explores how interactions in ABC systems can be mapped to logical operations and how catalytic behaviors correspond to logical gates or conditional statements.
-
-\subsection{Interactions as Logical Operations}
-
 In an ABC system, the combination of patterns can represent logical relationships. For instance, the interaction \( A + B \to AB \) can be interpreted as a logical AND operation, where \( AB \) is produced only if both \( A \) and \( B \) are present. The probabilities of patterns encode their logical "truth values," with higher probabilities corresponding to "true" states and lower probabilities corresponding to "false" states. We already showed that interaction \( A + B \to AB \) can be expressed as:
 \[
 P(AB) = P(A) \cdot P(B) \cdot S(AB),
@@ -214,16 +207,12 @@ P(\neg A) = 1 - P(A).
 \]
 These interactions collectively encode basic logical operations, enabling the system to process and store information in a manner analogous to digital logic.
 
-\subsection{Catalysis as Conditional Logic}
-
-In the context of ABC systems, a catalyst \( C \) facilitating the reaction \( A + B \to AB \) can be interpreted as a conditional statement or a logical gate. The presence of \( C \) determines whether the reaction occurs, making it analogous to the logical "if" condition: "If \( C \), then \( A + B \to AB \)."
+A Catalyst \( C \) facilitating the reaction \( A + B \to AB \) can be interpreted as a conditional statement or a logical gate. The presence of \( C \) determines whether the reaction occurs, making it analogous to the logical "if" condition: "If \( C \), then \( A + B \to AB \)."
 This behavior maps directly to the conditional logic often found in programming and computation. In terms of probability, the catalyzed interaction can be expressed as:
 \[
 P(AB | C) \propto P(A) \cdot P(B) \cdot S(A, B | C),
 \]
 where \( S(A, B | C) \) represents the stability of the interaction in the presence of the catalyst \( C \).
-
-Catalysts can also be compared to the gate of a transistor in an electronic circuit. Just as a transistor gate controls the flow of current between its source and drain, a catalyst \( C \) controls the occurrence of the reaction \( A + B \to AB \). The analogy extends to the amplification effect: a small amount of \( C \) can enable significant interaction between \( A \) and \( B \), similar to how a small gate voltage modulates a larger current.
 
 Additionally, catalysts can encode more complex logical gates. For example, a two-step catalysis process \( C_1 \) and \( C_2 \) enabling \( A + B \to AB \) and \( AB + C \to ABC \) respectively corresponds to a sequential logic operation:
 \[
@@ -231,18 +220,12 @@ Additionally, catalysts can encode more complex logical gates. For example, a tw
 \]
 Such catalytic networks can encode conditional logic akin to nested IF statements in programming or complex gates in digital logic circuits. 
 
-Interactions in ABC systems can be interpreted as logical operations, with catalysts playing the role of conditional gates or enabling mechanisms. This mapping reveals a computational aspect of such systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
+This mapping reveals a computational aspect of such systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
 
 
 \section{Generating Cellular Automata Rules in ABC Systems}
 
-ABC systems, with their interaction-driven dynamics and stability-based selection, can be extended to generate behavior analogous to cellular automata (CA) \cite{wolfram2002new}. By carefully defining interaction rules and stability imbalances, ABC systems can mimic specific CA rules, including those capable of producing complex behavior. This section demonstrates how stability imbalances in an ABC system can emulate one of Wolfram’s elementary cellular automata rules and explores the mechanisms by which these systems transition into computational models.
-
-\subsection{Mapping ABC Systems to Cellular Automata}
-
-Cellular automata operate on discrete states, where the next state of a cell depends on its current state and the states of its neighbors. Similarly, ABC systems evolve based on the interactions and stabilities of patterns in the population. By associating patterns in the ABC system with the states of a CA, and interactions with transition rules, we can map ABC dynamics to CA behavior.
-
-\subsection{Stability Imbalances as Transition Rules}
+ABC systems, can be further extended to generate behavior analogous to cellular automata (CA) \cite{wolfram2002new}. By defining interaction rules and stability imbalances, ABC systems can mimic specific CA rules, including those capable of producing complex behavior. CA's operate on discrete states, where the next state of a cell depends on its current state and the states of its neighbors. By associating patterns in the ABC system with the states of a CA, and interactions with transition rules, we can map ABC dynamics to CA behavior.
 
 In ABC systems, the stability of interactions \( S(p, q) \) determines the likelihood of forming new patterns. To emulate a specific CA rule, we assign stability imbalances that prioritize the creation of patterns corresponding to the rule’s outputs. For instance, if the CA rule specifies that a cell becomes "active" when one or both neighbors are active, we increase the stability of interactions that encode this outcome.
 
@@ -270,21 +253,11 @@ At each iteration, the patterns \( AB, BC, \) etc., encode the next generation o
 
 The ability of ABC systems to replicate CA behavior highlights their potential for emergent computation and complex pattern formation.
 
-\section{Fractals and Grid-Based Agent-Based Models in ABC Systems}
+\section{Fractals and Agent-Based Models in ABC Systems}
 
-Fractals are mathematical structures characterized by self-similarity, where patterns repeat at different scales. Cellular automata (CA) have been widely used to generate fractals, such as the Sierpinski triangle, through simple, deterministic rules. ABC systems, however, offer a more generalized framework for simulating fractals and other grid-based phenomena by incorporating \textit{positional stability} and \textit{probabilistic evolution}. These enhancements extend the capabilities of ABC systems beyond deterministic CA, enabling the modeling of more dynamic and biologically inspired processes.
+Fractals are mathematical structures characterized by self-similarity, where patterns repeat at different scales. Cellular Automata (CA) have been widely used to generate fractals, such as the Sierpinski triangle, through simple, deterministic rules. ABC systems can simulate fractals and other grid-based phenomena by incorporating \textit{positional stability} and \textit{probabilistic evolution}. These enhancements extend the capabilities of ABC systems beyond deterministic CA, enabling the modeling of more dynamic and biologically inspired processes.
 
-\subsection{Positional Stability in ABC Systems}
-
-In traditional CA, the state of a cell depends solely on its current value and the values of its neighbors according to fixed transition rules. In ABC systems, the concept of \textit{positional stability} allows the interactions between elements to depend on both the spatial relationships and the inherent stabilities of those interactions. Specifically, the likelihood of a cell transitioning to a specific state is determined by stability scores assigned to its neighbors' positions, such as \textit{left}, \textit{center}, and \textit{right}. This approach mimics chemical bonding, where interactions may vary depending on direction and context.
-
-For instance, in a grid-based ABC system designed to generate fractal patterns:
-\[
-S(\text{left}), S(\text{center}), S(\text{right})
-\]
-represent the stability scores of interactions for each position in a triplet. The system evolves probabilistically, with the stability scores determining the likelihood of an element transitioning to an active (\textit{e.g.,} `A') or inactive (\textit{e.g.,} `B') state. Additionally, a small mutation rate introduces stochasticity, ensuring the exploration of a broader pattern space.
-
-\subsection{Simulating the Sierpinski Triangle with Positional Stability}
+Consider an ABC system where the likelihood of a cell transitioning to a specific state is determined by different stability scores assigned to its neighbors' positions, such as \textit{left}, \textit{center}, and \textit{right}. This approach mimics chemical bonding, where interactions may vary depending on direction and context. For instance, in a grid-based ABC system designed to generate fractal patterns, \(S(\text{left}), S(\text{center}), S(\text{right})\) represent the stability scores of interactions for each position in a triplet. 
 
 Using positional stability, an ABC system can simulate patterns resembling fractals, such as the Sierpinski triangle. Figure~\ref{fig:fractals} illustrates the comparison between the classic Sierpinski triangle generated using deterministic CA rules and the emergent pattern from an ABC system incorporating probabilistic, stability-driven dynamics. While the simulated pattern does not perfectly match the mathematical Sierpinski triangle, it demonstrates the capacity of ABC systems to approximate fractal-like behavior using generalized, probabilistic rules.
 
@@ -301,7 +274,7 @@ Using positional stability, an ABC system can simulate patterns resembling fract
 
 ABC systems highlight a key distinction between Bayesian \cite{mcgrayne2011theory} updating and frequentist probabilities, illustrating their respective roles in evolving versus static systems. Bayesian updating provides a dynamic framework for incorporating new information over time, making it a hallmark of systems capable of evolution and self-organization. Frequentist probabilities, on the other hand, describe point-in-time static distributions, lacking the temporal adaptability intrinsic to evolutionary dynamics.
 
-Kauffman \cite{kauffman2000investigations}, for example, has used frequentist arguments to claim that a purely computational system cannot explore the "adjacent possible". In ABC systems, the "adjacent possible" means compounds that emerge in generation \(t+1\), but were not available in generation \(t\). Thinking about the problem in Bayesian terms, removes his objection.
+Kauffman \cite{kauffman2000investigations}, for example, has used frequentist arguments to claim that a purely computational system cannot explore the "adjacent possible". In ABC systems, the "adjacent possible" means compounds that emerge in generation \(t+1\), but were not available in generation \(t\). Thinking about the problem in Bayesian terms removes his objection.
 
 In ABC systems, the probability of a pattern \( p \) at generation \( t+1 \) depends on its prior probability \( P(p_t) \), the probabilities of other patterns \( P(q_t) \), and the stability of their interactions \( S(p, q) \). The update rule can be expressed as:
 \[
@@ -313,33 +286,22 @@ P(H|E) = \frac{P(E|H) \cdot P(H)}{P(E)},
 \]
 where:
 \begin{itemize}
-    \item \( H \): Hypothesis (\( p \) as a pattern in the system).
-    \item \( E \): Evidence (interactions \( q \) and their stabilities \( S(p, q) \)).
-    \item \( P(H) \): Prior probability (\( P(p_t) \)).
-    \item \( P(E|H) \): Likelihood (\( \sum_{q \in P} P(q_t) \cdot S(p, q) \)).
-    \item \( P(H|E) \): Posterior probability (\( P(p_{t+1}) \)).
+    \item[] \( H \): Hypothesis (\( p \) as a pattern in the system).
+    \item[] \( E \): Evidence (interactions \( q \) and their stabilities \( S(p, q) \)).
+    \item[] \( P(H) \): Prior probability (\( P(p_t) \)).
+    \item[] \( P(E|H) \): Likelihood (\( \sum_{q \in P} P(q_t) \cdot S(p, q) \)).
+    \item[] \( P(H|E) \): Posterior probability (\( P(p_{t+1}) \)).
 \end{itemize}
 
 This iterative Bayesian updating process allows ABC systems to adapt and encode new information dynamically. The system continuously adjusts pattern probabilities to reflect the effects of interactions and stability constraints, resulting in emergent complexity and self-organization.
 
 \section{Emergent Information vs. Pre-Designed Information in ABC Systems}
 
-Emergent information arises from the interactions and feedback loops within a system. In ABC systems, patterns evolve dynamically as stable configurations persist and dominate over time through iterative interactions, encoding the history of the system. Selection pressure, driven by stability imbalances and probabilistic feedback, ensures that only certain configurations persist. This process guides the system toward lower-entropy, information-rich states. Unlike systems with predetermined outcomes, ABC systems explore a vast configuration space, with the resulting patterns shaped by initial conditions, interaction rules, and stability constraints.
+In ABC systems, stable patterns evolve over time, encoding the history of the system, and guiding the system toward lower-entropy, information-rich states. On the way, ABC systems explore a vast configuration space, with the resulting patterns shaped by their evolution.
 
-In contrast to ABC systems, pre-designed systems, such as 3D-printed compounds or pre-programmed circuits, rely on external means to define their structure and function. In such systems, information is imposed externally, with patterns explicitly specified by a designer or blueprint, leaving little or no room for system dynamics. These systems lack an evolutionary process and do not explore configuration space; instead, they are constructed to achieve predefined states. Consequently, their outcomes are fixed and static, with minimal capacity for adaptation or self-organization. The absence of emergent dynamics distinguishes these systems from the adaptable and exploratory nature of ABC systems.
+Pre-designed systems, such as 3D-printed compounds, have their information imposed externally, using patterns specified by a designer or blueprint, leaving little room for system dynamics. These systems lack an evolutionary process and do not explore configuration space; instead, they are constructed to achieve predefined states. Consequently, their outcomes are fixed and static, with minimal adaptation or self-organization. The absence of emergent dynamics distinguishes these systems from the adaptable and exploratory nature of ABC systems.
 
-The contrast between emergent and pre-designed systems suggests a potential criterion for determining whether a system is pre-designed: the presence of an evolutionary process. If a system displays emergent properties such as adaptation, path dependency, and entropy reduction, it likely evolves internally. Conversely, systems that achieve order without intermediate steps or feedback are more likely to be pre-designed. Machine learning systems lie on a continuum between pre-designed systems and fully emergent ones, since evolution-like processes occur under strong external guidance and predefined constraints.
-
-
-\section{The Path from Abiotic to Biotic Evolution in ABC Systems}
-
-ABC systems offer a framework for understanding how evolutionary processes can emerge in abiotic contexts, bridging the gap between non-living matter and life-like behavior. By encoding memory, leveraging feedback, and fostering self-organization, these systems demonstrate that evolution arises from fundamental principles of stability and selection rather than being confined to living systems.
-
-Abiotic evolution in ABC systems is driven by stability imbalances, interaction probabilities, and selection pressures. Stable patterns persist across generations, encoding information about the system’s history. This process mirrors natural selection, with stability acting as a fitness criterion. Over time, feedback loops amplify self-replicating patterns, creating networks of interactions that drive the emergence of increasingly complex and self-sustaining structures.
-
-As stable patterns encode information and adapt dynamically, ABC systems act as rudimentary computational models, mimicking logic gates and cellular automata. The transition to biotic evolution occurs when these information-processing capabilities enable patterns to replicate and adapt more robustly, aligning with principles of Turing machines.
-
-ABC systems highlight how evolutionary processes, including inheritance, metabolism, and selection, can emerge without predefined biological structures. By evolving information storage and self-replication, these systems offer a plausible pathway for abiotic systems to transition toward biotic behavior, providing insights into the origins of life and the emergence of complexity in non-living systems.
+The contrast between emergent and pre-designed systems suggests a potential criterion for determining whether a system is pre-designed: the presence of an evolutionary process. If a system displays emergent properties such as adaptation, path dependency, and entropy reduction, it likely evolves autonomously. Systems that achieve order without intermediate steps or feedback are more likely to be pre-designed. Machine learning systems lie somewhere in the middle.
 
 
 \section{Top-Down vs. Bottom-Up Dynamics in ABC Systems}
@@ -457,73 +419,100 @@ The principles underlying ABC systems resonate with the fine-tuned imbalances th
 % References, variant B: internal bibliography
 %=====================================
 \begin{thebibliography}{999}
+
+%ref 1
 \bibitem{schrodinger1944life}
 Schrödinger, E. \textit{What is Life?}; Cambridge University Press: Cambridge, UK, 1944.
 
+%ref 2
 \bibitem{tegmark2008mathematical}
-Tegmark, M. The Mathematical Universe. \textit{Found. Phys.} \textbf{2008}, \textit{38}, 101–150. https://doi.org/10.1007/s10701-007-9186-9.
+Tegmark, M. The Mathematical Universe. \textit{Found. Phys.} \textbf{2008}, \textit{38}, 101–150. 
 
+%ref 3
 \bibitem{nowak2006evolutionary}
 Nowak, M.A. \textit{Evolutionary Dynamics: Exploring the Equations of Life}; Belknap Press: Cambridge, MA, USA, 2006.
 
+%ref 4
 \bibitem{wheeler1990itbit}
 Wheeler, J.A. Information, Physics, Quantum: The Search for Links. In \textit{Complexity, Entropy, and the Physics of Information}; Zurek, W.H., Ed.; Addison-Wesley: Redwood City, CA, USA, 1990; pp. 3–28.
 
+%ref 5
 \bibitem{noble2012causality}
-Noble, D. A Theory of Biological Relativity: No Privileged Level of Causation. \textit{Interface Focus} \textbf{2012}, \textit{2}, 55–64. https://doi.org/10.1098/rsfs.2011.0067.
+Noble, D. A Theory of Biological Relativity: No Privileged Level of Causation. \textit{Interface Focus} \textbf{2012}, \textit{2}, 55–64.
 
+%ref 6
 \bibitem{lloyd2006programming}
 Lloyd, S. \textit{Programming the Universe: A Quantum Computer Scientist Takes on the Cosmos}; Alfred A. Knopf: New York, NY, USA, 2006.
 
+%ref 7
 \bibitem{kolmogorov1965complexity}
 Kolmogorov, A.N. Three Approaches to the Quantitative Definition of Information. \textit{Problemy Peredachi Informatsii} \textbf{1965}, \textit{1}, 3–11.
 
+%ref 8
 \bibitem{chaitin1977algorithmic}
-Chaitin, G.J. Algorithmic Information Theory. \textit{IBM J. Res. Dev.} \textbf{1977}, \textit{21}, 350–359. https://doi.org/10.1147/rd.215.0350.
+Chaitin, G.J. Algorithmic Information Theory. \textit{IBM J. Res. Dev.} \textbf{1977}, \textit{21}, 350–359. 
 
+%ref 9
 \bibitem{solomonoff1964formal}
-Solomonoff, R.J. A Formal Theory of Inductive Inference. Part I and Part II. \textit{Inf. Control} \textbf{1964}, \textit{7}, 1–22, 224–254. https://doi.org/10.1016/S0019-9958(64)90223-2.
+Solomonoff, R.J. A Formal Theory of Inductive Inference. Part I and Part II. \textit{Inf. Control} \textbf{1964}, \textit{7}, 1–22, 224–254.
 
-
+%ref 10
 \bibitem{shannon1948mathematical}
-Shannon, C.E. A Mathematical Theory of Communication. \textit{Bell Syst. Tech. J.} \textbf{1948}, \textit{27}, 379–423. https://doi.org/10.1002/j.1538-7305.1948.tb01338.x.
+Shannon, C.E. A Mathematical Theory of Communication. \textit{Bell Syst. Tech. J.} \textbf{1948}, \textit{27}, 379–423.
 
-\bibitem{back1996evolutionary}
-Bäck, T.; Fogel, D.B.; Michalewicz, Z. \textit{Evolutionary Computation 1: Basic Algorithms and Operators}; CRC Press: Boca Raton, FL, USA, 2000.
+%ref 11
+\bibitem{deutsch2013constructor}
+Deutsch, D.; Marletto, C. Constructor theory of information. \textit{Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences} \textbf{2015}, \textit{471}, 20140540. 
 
-\bibitem{goldberg1989genetic}
-Goldberg, D.E. \textit{Genetic Algorithms in Search, Optimization, and Machine Learning}; Addison-Wesley: Boston, MA, USA, 1989.
-
-\bibitem{holland1975adaptation}
-Holland, J.H. \textit{Adaptation in Natural and Artificial Systems}; University of Michigan Press: Ann Arbor, MI, USA, 1975.
-
+%ref 12
 \bibitem{leff2002maxwell}
 Leff, H.S.; Rex, A.F. \textit{Maxwell’s Demon: Entropy, Information, Computing}; Princeton University Press: Princeton, NJ, USA, 2002.
 
-\bibitem{wolfram1983statistical}
-Wolfram, S. Statistical Mechanics of Cellular Automata. \textit{Rev. Mod. Phys.} \textbf{1983}, \textit{55}, 601–644. https://doi.org/10.1103/RevModPhys.55.601.
+%ref 13
+\bibitem{back1996evolutionary}
+Bäck, T.; Fogel, D.B.; Michalewicz, Z. \textit{Evolutionary Computation 1: Basic Algorithms and Operators}; CRC Press: Boca Raton, FL, USA, 2000.
 
+%ref 14
+\bibitem{goldberg1989genetic}
+Goldberg, D.E. \textit{Genetic Algorithms in Search, Optimization, and Machine Learning}; Addison-Wesley: Boston, MA, USA, 1989.
+
+%ref 15
+\bibitem{holland1975adaptation}
+Holland, J.H. \textit{Adaptation in Natural and Artificial Systems}; University of Michigan Press: Ann Arbor, MI, USA, 1975.
+
+%ref 16
 \bibitem{wolfram2002new}
 Wolfram, S. \textit{A New Kind of Science}; Wolfram Media: Champaign, IL, USA, 2002.
 
+%ref 17
+\bibitem{wolfram1983statistical}
+Wolfram, S. Statistical Mechanics of Cellular Automata. \textit{Rev. Mod. Phys.} \textbf{1983}, \textit{55}, 601–644.
+
+%ref 18
 \bibitem{mcgrayne2011theory}
 McGrayne, S.B. \textit{The Theory That Would Not Die: How Bayes' Rule Cracked the Enigma Code, Hunted Down Russian Submarines, and Emerged Triumphant from Two Centuries of Controversy}; Yale University Press: New Haven, CT, USA, 2011.
 
+%ref 19
 \bibitem{kauffman2000investigations}
 Kauffman, S. \textit{Investigations}; Oxford University Press: New York, NY, USA, 2000.
 
+%ref 20
 \bibitem{landau1980statistical}
 Landau, L. D., Lifshitz, E. M. \textit{Statistical Physics}; Pergamon Press, 1980.
 
+%ref 21
 \bibitem{bertalanffy1968general}
 Bertalanffy, L. von. (1968). \textit{General System Theory}. New York: George Braziller.
 
+%ref 22
 \bibitem{sutton2018reinforce}
 Sutton, R. S., Barto, A. G. (2018). Reinforcement Learning: An Introduction. MIT Press.
 
+%ref 23
 \bibitem{rees2000just}
 Rees, M. \textit{Just Six Numbers: The Deep Forces that Shape the Universe}; Basic Books: New York, NY, USA, 2000.
 
+%ref 24
 \bibitem{davies2006goldilocks}
 Davies, P. \textit{The Goldilocks Enigma: Why is the Universe Just Right for Life?}; Allen Lane: London, UK, 2006.
 
