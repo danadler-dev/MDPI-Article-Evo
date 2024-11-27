@@ -188,6 +188,19 @@ If either \( P_1 \) or \( P_2 \) has high entropy, the mixing introduces randomn
 
 When \( P_1 \) and \( P_2 \) have complementary patterns (e.g., \( P_1 \) lacks certain patterns that \( P_2 \) provides), mixing can generate new stable configurations that reduce entropy more effectively than in isolated systems. For instance, if \( P_1 = \{A, B\} \) and \( P_2 = \{X, Y\} \), the formation of \( ABX, BY, AX \) introduces novel low-entropy configurations.
 
+\section{Binary Stability Constraints and Their Role in ABC Systems}
+
+Binary stability constraints extend the capabilities of ABC systems with interactions that are either allowed or forbidden, akin to a binary switch. These constraints govern whether two or more elements in the system can form stable compounds or patterns, based on specific matching criteria. This matching can be visualized using a puzzle piece analogy: two pieces either fit together (stable) or not. The simplest form of binary stability involves pairwise interactions, such as a particle and its antiparticle, denoted by \( A \) and \( \overline{A} \), respectively, which usually results in annihilation. Multi-site binary stability generalizes this concept to scenarios where stability arises from the simultaneous matching of multiple sites, as seen in codon-anticodon matches in ribosomes or crystallization, where the arrangement of atoms depends on direction and position matches, mimicking the puzzle piece analogy. Such constraints ensure that only specific configurations form, driving the system toward ordered, low-entropy states. Binary stability constraints expand the computational capabilities of ABC systems by enabling the evolution of logic operations and decoders. 
+
+For example, the XOR operation, fundamental to digital logic, can evolve from a random binary sequence  like \( 0110111000\dots \) where local interactions occur between adjacent pairs, such that pairs that are both 1 or both 0 are annihilated (stability=0). The result will be a sequence of alternating \( 0, 1 \) satisfying the XOR condition, and reducing the entropy of the sequence from 1 bit to 0 bits, since the resulting sequence is fully deterministic.
+
+Applications of binary stability constraints in ABC systems are numerous. They can model cellular automata (CA) and fractals such as the Sierpiński triangle, implemented with Wolfram's Rule 90 \cite{wolfram1983statistical} as the xor of the left and right neighbor: 
+\( s_{i}^{t+1} = s_{i-1}^t \oplus s_{i+1}^t \).
+
+The broader implications of binary stability constraints are profound. They suggest a pathway for the emergence of computation in natural systems from simple interactions like particle-antiparticle annihilation in physics. These interactions serve as natural binary functions, ensuring that only specific configurations persist. By extending this concept to multi-site matching, ABC systems gain the ability to evolve more complex operations and structures, bridging the gap between simple stability-driven dynamics and the rich behavior of computational systems.
+
+Binary stability constraints highlight the duality of simplicity and complexity: local binary decisions underpin global computational capabilities. From modeling abiotic processes like crystallization to evolving logic decoders and fractals, these constraints provide a versatile framework for exploring the intersection of physics, computation, and emergent complexity.
+
 
 \section{Interpreting Interactions as Logic Gates in ABC Systems}
 
@@ -218,7 +231,7 @@ Additionally, catalysts can encode more complex logical gates. For example, a tw
 \]
 Such catalytic networks can encode conditional logic akin to nested IF statements in programming or complex gates in digital logic circuits. 
 
-This mapping reveals a computational aspect of such systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
+This mapping reveals a computational aspect of ABC systems, where reactions and stability constraints naturally encode logic. Catalytic behaviors extend this logic by introducing conditionality, enabling ABC systems to perform more complex computations. These insights bridge the gap between chemical interactions and digital computation, highlighting the potential for emergent logic and information processing in abiotic systems.
 
 
 \section{Generating Cellular Automata Rules in ABC Systems}
@@ -228,28 +241,20 @@ ABC systems, can be further extended to generate behavior analogous to cellular 
 In ABC systems, the stability of interactions \( S(p, q) \) determines the likelihood of forming new patterns. To emulate a specific CA rule, we assign stability imbalances that prioritize the creation of patterns corresponding to the rule’s outputs. For instance, if the CA rule specifies that a cell becomes "active" when one or both neighbors are active, we increase the stability of interactions that encode this outcome.
 
 Wolfram’s Rule 30 \cite{wolfram1983statistical} is a well-known elementary CA rule producing complex behavior. 
-This can be encoded in an ABC system by associating the states of cells with patterns and defining stability imbalances to favor interactions that generate the correct next state. For example: we define \( A, B, C \) as the current states of left, center, and right cells, respectively. Then, use stability imbalances to prioritize outcomes matching the rule. For instance:
+This can be encoded in an ABC system by associating the states of cells with patterns and defining stability imbalances to favor interactions that generate the correct next state. For example: we define \( (A, B, C) \) as the current states of a triplet of \( (left, center, right) \) cells, respectively. Then, use stability imbalances to prioritize outcomes matching the rule:
     \[
     S(A, B) = 0.9 \text{ if } A = 1, B = 1; \quad S(B, C) = 0.7 \text{ if } B = 1, C = 0.
     \]
 
-We initialize the ABC system with patterns corresponding to the initial state of the CA and allow it to evolve according to the stability-driven dynamics. For example:
-\begin{enumerate}
-    \item Initialize the system with a random distribution of \( A, B, C \) (e.g., \( 101100110 \)).
-    \item Define interaction rules such as \( A + B \to AB \), with stability imbalances reflecting Rule 30’s transition table.
-    \item Allow the system to iterate, updating patterns based on the outcomes of interactions.
-\end{enumerate}
-
-At each iteration, the patterns \( AB, BC, \) etc., encode the next generation of the CA. The emergent dynamics will reflect the behavior of Rule 30, with complex patterns arising over successive generations.
+We initialize the ABC system with random \( 0,1 \) patterns corresponding to the initial state of the CA and allow it to evolve according to the stability-driven dynamics. Mixed triplets with \( A, B \), like \( (A, B, A) \) and \( (B, A, B) \) map to a \( B \), reflecting the dominant stability of mixed \( A, B \), while other states map to an \( A \). The emergent dynamics reflect the behavior of Rule 30, with complex patterns arising over successive generations. This ability of ABC systems to replicate CA behavior highlights their potential for emergent computation and complex pattern formation.
 
 \begin{figure}[htp]
     \centering
-    \includegraphics[width=8cm,height=6cm]{ca_1}
+    \includegraphics[width=8cm,height=5cm]{ca_1}
     \caption{ABC System Evolution Mimicking Rule 30}
     \label{fig:ca_1}
 \end{figure}
 
-The ability of ABC systems to replicate CA behavior highlights their potential for emergent computation and complex pattern formation.
 
 \section{Fractals and Agent-Based Models in ABC Systems}
 
