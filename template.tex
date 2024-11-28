@@ -204,22 +204,28 @@ ABC systems can use binary logic to model cellular automata (CA) and fractals, s
 
 Binary stability constraints suggest a pathway for the emergence of computation in natural systems from simple interactions like particle-antiparticle annihilation in physics. These interactions serve as natural binary functions, ensuring that only specific configurations persist. By extending this concept to multi-site matching, ABC systems gain the ability to evolve more complex operations and structures, bridging the gap between simple stability-driven dynamics and the rich behavior of computational systems.
 
-\subsection{Evolution and Replication of Decoders}
+\subsection{Evolution, Replication, and Storage of Decoders}
 
-ABC systems can evolve computational functionality such as decoders. A simple 2-bit decoder maps \(00 \to [0], 01 \to [1], 10 \to [2], 11 \to [3]\) through stability-driven selection, where patterns that correctly map binary inputs to outputs dominate the population over successive generations. 
-
-There would have to be an unrelated reason for the stability constraints to self-organize in this way. One reason may be that the correct output sequence happens to form stable structures, as in the case of amino acids forming proteins. In such a population, correct patterns are rewarded with high stability values (\( S=0.9 \)), and persist longer in the population, while incorrect patterns with lower stability (\( S=0.1 \)) die out. The question then becomes how such a population can replicate and proliferate even though there no direct inheritance in ABC systems. The answer is that binary matching can be the matchmaker.
+ABC systems can evolve computational functionality such as decoders. A simple 2-bit decoder maps \(00 \to [A], 01 \to [B], 10 \to [C], 11 \to [D]\) through stability-driven selection. One reason this may evolve is if A, B, C, D are powerful catalysts. A chemical example may be Platinum, Palladium,
+Iron and Nickel. Such patterns are rewarded with high stability values (\( S=0.9 \)), and persist longer in the
+population, while other patterns with lower stability (\( S=0.1 \)) die out. The question then becomes how such a
+population can replicate and proliferate even though there no direct inheritance in ABC systems. The answer is
+that binary matching can be the matchmaker.
 
 Call the above population \( P_T \). It contains only the 4 correctly evolved triplets: 
-00[0], 01[1], 10[2], 11[3]. Now consider another much larger population \( P_A \), containing both correct and incorrect mappings triplet like  00[1], 00[2], 01[0]....).
+00[A], 01[B], 10[C], 11[D]. Now consider another much larger population \( P_A \), containing both correct and incorrect mappings triplet like  00[A], 00[B], 01[F]....). To replicate \( P_T \) to \( P_A \): mix the populations, and let cross-population elements interact only when the
+triplet values match. When such interactions occurs, patterns in \( P_A \) with wrong outputs like \(01[F]\) will
+not match any triplet in \( P_T \) and get eliminated from the population, while patterns like \(01[B]\) will
+match and survive. So \( P_T \) acts as a template that eliminates all invalid values from \( P_A \). This  allows
+a small or singular population \( P_T \) that may have only evolved once, to replicate itself to a much larger
+population \( P_A \). 
 
- To replicate \( P_T \) to \( P_A \): mix the populations, and let cross-population elements interact only when the triplet values match. When such interactions occurs, patterns in \( P_A \) with wrong outputs like \(01[2]\) will not match any triplet in \( P_T \) and get eliminated from the population, while patterns like \(01[1]\) will match and survive. So \( P_T \) acts as a template that eliminates all invalid values from \( P_A \). This  allows a small or singular population \( P_T \) that may have only evolved once, to replicate itself to a much larger population \( P_A \).
+Once a consistent encoding for interactions evolves, it can be stored. And once stored, it can evolve
+independently of the interactions, thus creating a deterministic sequence of interactions. In both natural and
+engineered systems, a key evolutionary advancement is the separation of fundamental operations such as chemical 
+reactions, physical processes, or logical operations from the sequencing of those operations. This decoupling allows fundamental operations to evolve independently based on local constraints (e.g., stability, energy minimization), while the sequencing evolves to encode complex functions, adapt to changes, or optimize outcomes. An example would be a recipe. The symbols are the ingredients, the mixing or heating are the interactions, and the preparation sequence is the repeatable process. Other examples might include engineered circuits, programmed computers, as well as evolved structures such as a series of waterfalls. Each waterfall is an energy conversion operation on water, and the sequence is stored in the physical terrain.
 
-This may seem contrived, but it mirrors natural decoding mechanisms, such as codon-anticodon matching in ribosomes. In protein synthesis, codons on mRNA interact with complementary anticodons on tRNA, ensuring the correct amino acid is delivered (the output). This binary matching process is analogous to stability-driven binary interactions in ABC systems, where non-matching sequences fail to interact and are excluded.
-
-Abiotic examples include crystal formation, where atomic or molecular arrangements are driven by spatial and energetic compatibility, and catalytic reactions, where specific reactants match active sites of catalysts. These systems exhibit binary stability constraints similar to those in ABC decoders, where only precise matches lead to functional outcomes.
-
-The evolution of decoders in ABC systems highlights how stability rules can drive emergent functionality. Selective pressure ensures that stable matches persist while mismatches are eliminated, refining the system to perform decoding without external guidance.
+This process is consistent with the theory that ribosomes evolved before the genetic code. The interaction of mRNA codons with complementary tRNA anticodons is the fundamental decoding interaction whose stability is driven by the constructed protein. Once this set of interaction and decoding sequence are available and can be stored, the code that drives the sequencing may evolve to select the most stable sequences.
 
 \section{Bayesian Updating in ABC Systems}
 
