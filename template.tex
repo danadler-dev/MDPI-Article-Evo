@@ -198,32 +198,21 @@ Multi-site binary stability generalizes this concept to scenarios where stabilit
 
 For example, the XOR operation, fundamental to digital logic, can evolve from a random binary sequence  like \( 0110111000\dots \) where local interactions occur repeatedly between adjacent pairs over a number of "generations", such that pairs that are both 1 or both 0 are annihilated (stability=0). The result will be a strictly alternating sequence of \( 010101... \) or \( 10101... \) satisfying the XOR condition, and reducing the entropy of the sequence from 1 bit to 0, since it is fully deterministic. If, instead, we eliminate all adjacent \( 01 \) and \( 10 \) pairs from the sequence at every generation the sequence will annihilate itself, or evolve into all 1's or all 0's, which also has an entropy of 0.
 
-Since ABC systems can evolve logic gates, they should also be able to evolve flip flops, which are just two logic gates with the outputs feeding back as inputs. This suggests that ABC systems can evolve stable information memory.
-
 ABC systems can use binary logic to model cellular automata (CA) and fractals, such as the Sierpiński triangle implemented over a 1D binary pattern, row by row using Wolfram's Rule 90 \cite{wolfram1983statistical} as the XOR of the left and right neighbor: \( s_{i}^{t+1} = s_{i-1}^t \oplus s_{i+1}^t \). A physical example of such a process occurs in polymer linear chain growth, where adding a monomer depends on adjacent chemical groups.
 
 Binary stability constraints suggest a pathway for the emergence of computation in natural systems from simple interactions. These interactions serve as natural binary functions, ensuring that only specific configurations persist. By extending this concept to multi-site matching, ABC systems gain the ability to evolve more complex operations and structures, bridging the gap between simple stability-driven dynamics and the rich behavior of computational systems.
 
-\subsection{Evolution, Replication, and Storage of Decoders}
+\subsection{Evolution of Decoders and Sequential Computation}
 
-ABC systems can evolve computational functionality such as decoders through stability-driven selection. A simple 2-bit decoder maps \(00 \to [A], 01 \to [B], 10 \to [C], 11 \to [D]\). One reason a mapping may evolve is if A, B, C, D are powerful catalysts. A chemical example may be Platinum, Palladium,
-Iron and Nickel. Such patterns may be rewarded with high stability values (\( S=0.9 \)), and persist longer in the
-population, while other patterns with lower stability (\( S=0.1 \)) die out. The question then becomes how such a
-population can replicate and proliferate even though there no direct inheritance in ABC systems. The answer is
-that binary matching can be the matchmaker.
+ABC systems can evolve computational functions, such as a binary decoder, through stability-driven
+selection. A simple 2-bit decoder maps \(00 \to A, 01 \to B, 10 \to C, 11 \to D\). An ABC system to model this consists of symbols \(\{0, 1, A, B, C, D\}\), where \(A, B, C, D\) represent outputs corresponding to the binary inputs \((00, 01, 10, 11)\). Stability constraints define the likelihood of mappings persisting over successive generations. For instance, the mapping \((0, 0, A)\) is assigned high stability, while invalid mappings such as \((0, 1, A)\) have lower or zero stability. One reason such a mapping may evolve is if A, B, C, D are powerful catalysts like Platinum or Palladium, and 2-bit patterns represent physical conditions required for their formation such as low or high neutron flux.
 
-Denote the above population \( P_T \). It contains only the 4 evolved triplets: 
-00[A], 01[B], 10[C], 11[D]. Now consider another much larger population \( P_A \), containing both correct and incorrect mapping triplets like  00[A], 00[B], 01[F]....). To replicate \( P_T \) to \( P_A \): mix the populations, and let cross-population elements interact only when the
-triplet values match. When such interactions occurs, patterns in \( P_A \) with wrong outputs like \(01[F]\) will
-not match any triplet in \( P_T \) and get eliminated from the population, while patterns like \(01[B]\) will
-match and survive. So \( P_T \) acts as a template that eliminates all invalid values from \( P_A \). This  allows
-a small or singular population \( P_T \) that may have only evolved once, to replicate itself to a much larger
-population \( P_A \). 
+The system begins with a random population of triplets \((X, Y, Z)\), where \(X, Y \in \{0, 1\}\) and \(Z \in \{A, B, C, D\}\). Over generations, unstable triplets are removed based on their stability scores, while stable triplets persist. Over time, only the mappings with the highest stability dominate the population. This evolutionary process demonstrates how stability constraints can drive the emergence of reliable decoding mechanisms.
 
-Once a consistent encoding for interactions evolves, it can be stored. And once stored, it can evolve
-independently of the interactions, thus creating a deterministic sequence of interactions. In both natural and
-engineered systems, a key evolutionary advancement is the separation of fundamental operations such as chemical 
-reactions, physical processes, or logical operations from the sequencing of those operations. This decoupling allows fundamental operations to evolve independently based on local constraints (e.g., stability, energy minimization), while the sequencing evolves to encode complex functions, adapt to changes, or optimize outcomes. An example would be a recipe. The symbols are the ingredients, the mixing or heating are the interactions, and the preparation sequence is the repeatable process. Other examples include engineered circuits, programmed computers, as well as evolved structures such as a series of waterfalls. Each waterfall is an energy conversion operation on water, and the sequence is stored in the physical terrain.
+ABC systems may be able to evolve memory to store patterns. Physically, memory can emerge through feedback-driven flip-flops, where stability reinforces a persistent state. Alternatively, bistable states, like ferromagnetic domains with two stable magnetic states, could encode memory by switching states in response to inputs. Chemical bonds offer another pathway (favored by biotic systems), where stable bonds persist. The evolution of memory in ABC systems is a significant step toward complex behaviors, linking simple interactions to advanced computational and regulatory capabilities.
+
+In both natural and engineered systems, a key evolutionary advancement is the separation of fundamental operations
+such as chemical  reactions, physical processes, or logical operations from the sequencing of those operations. This decoupling allows fundamental operations to evolve independently based on local constraints (e.g., stability, energy minimization), while the sequencing evolves to encode complex functions, adapt to changes, or optimize outcomes. An example would be a recipe. The symbols are the ingredients, the mixing or heating are the interactions, and the preparation sequence is the repeatable process. Other examples include engineered circuits, programmed computers, as well as evolved structures such as a series of waterfalls. Each waterfall is an energy conversion operation on water, and the sequence is stored in the physical terrain.
 
 This idea is consistent with the theory that ribosomes evolved before the genetic code \cite{fox2010origin}. The interaction of mRNA codons with complementary tRNA anticodons is the fundamental decoding interaction whose stability is driven by its amino acid's role in the constructed protein. Once the interaction and decoding sequences are available and can be stored, the code that drives the sequencing may evolve to select stable sequences.
 
