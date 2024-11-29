@@ -83,7 +83,7 @@ $^{1}$ \quad dan@danadler.com}
 
 The study of evolution, complexity, and information has been a cornerstone of multiple scientific disciplines, bridging physics, biology, and computation. Foundational works such as Schrödinger's \textit{What is Life?} \cite{schrodinger1944life} posed fundamental questions about how order emerges from disorder, inspiring theoretical explorations of how physical laws govern the emergence of biological systems. Tegmark's \textit{Mathematical Universe Hypothesis} \cite{tegmark2008mathematical} posits that the universe itself is a mathematical structure, where physical phenomena are manifestations of abstract mathematical rules. These works frame the question of complexity but leave the mechanisms of emergence unaddressed.
 
-In the realm of evolutionary dynamics, Nowak's \textit{Evolutionary Dynamics} \cite{nowak2006evolutionary} provides mathematical models that describe the mechanisms of replication, mutation, and selection. While these models illuminate the principles of biological evolution, they assume the existence of self-replicating entities and do not delve into how such entities might arise from purely abiotic processes. Similarly, Wheeler's concept of "It from Bit" \cite{wheeler1990itbit} intriguingly suggests that information underpins the physical world, but it lacks a concrete mechanism for how information structures form and evolve.
+In the realm of evolutionary dynamics, Fisher \cite{fisher1930genetical} and Nowak \cite{nowak2006evolutionary} provide mathematical models that describe the mechanisms of replication, mutation, and selection. While these models illuminate the principles of biological evolution, they assume the existence of self-replicating, mutating entities and do not delve into how such entities might arise from purely abiotic processes. Similarly, Wheeler's concept of "It from Bit" \cite{wheeler1990itbit} intriguingly suggests that information underpins the physical world, but it lacks a concrete mechanism for how information structures form and evolve.
 
 Dennis Noble's work on top-down causality \cite{noble2012causality} emphasizes the role of systems-level behavior in determining lower-level interactions. This perspective challenges reductionist paradigms but does not address how such systems might emerge from simpler, abiotic conditions. On the computational side, Seth Lloyd’s concept of the universe as a quantum computer \cite{lloyd2006programming} provides a framework for understanding the universe as a computational entity but leaves open the question of how specific computational rules or patterns arise.
 
@@ -188,15 +188,15 @@ If either \( P_1 \) or \( P_2 \) has high entropy, the mixing introduces randomn
 
 When \( P_1 \) and \( P_2 \) have complementary patterns (e.g., \( P_1 \) lacks certain patterns that \( P_2 \) provides), mixing can generate new stable configurations that reduce entropy more effectively than in isolated systems. For instance, if \( P_1 = \{A, B\} \) and \( P_2 = \{X, Y\} \), the formation of \( ABX, BY, AX \) introduces novel low-entropy configurations.
 
-\section{Binary Stability Constraints and Their Role in ABC Systems}
+\section{Binary Stability Constraints and the Evolution of Computation}
 
 Binary stability constraints extend the capabilities of ABC systems with interactions that are either allowed or forbidden. This can be visualized using a puzzle piece analogy: two pieces either fit together (stability=1) or not (stability=0). The simplest form of binary stability involves pairwise interactions, such as a particle and its antiparticle, denoted by \( A \) and \( \overline{A} \), respectively, which usually results in annihilation. 
 
 Multi-site binary stability generalizes this concept to scenarios where stability arises from the simultaneous matching of multiple sites, as seen in codon-anticodon matches in ribosomes or crystallization, where the arrangement of atoms depends on direction and position matches, mimicking the puzzle piece analogy. Such constraints ensure that only specific configurations form, driving the system toward ordered, low-entropy states. Binary stability constraints expand the computational capabilities of ABC systems by enabling the evolution of logic operations and decoders. 
 
-\subsection{Evolution of Computation}
+\subsection{Evolution of Logical Operations}
 
-For example, the XOR operation, fundamental to digital logic, can evolve from a random binary sequence  like \( 0110111000\dots \) where local interactions occur repeatedly between adjacent pairs over a number of "generations", such that pairs that are both 1 or both 0 are annihilated (stability=0). The result will be a strictly alternating sequence of \( 010101... \) or \( 10101... \) satisfying the XOR condition, and reducing the entropy of the sequence from 1 bit to 0, since it is fully deterministic. If, instead, we eliminate all adjacent \( 01 \) and \( 10 \) pairs from the sequence at every generation the sequence will annihilate itself, or evolve into all 1's or all 0's, which also has an entropy of 0.
+For example, the XOR operation, fundamental to digital logic, can evolve from a random binary sequence  like \( 0110111000\dots \) where local interactions occur repeatedly between adjacent pairs over a number of "generations", such that pairs that are both 1 or both 0 are annihilated (stability=0). The result will be a strictly alternating sequence of \( 010101... \) or \( 10101... \) satisfying the XOR condition, and reducing the entropy of the sequence from 1 bit to 0, since it is fully deterministic. If, instead, we eliminate all adjacent \( 01 \) and \( 10 \) pairs from the sequence at every generation the sequence will annihilate itself, or evolve into all 1's or all 0's, which also has an entropy of 0. A physical example is the formation of salt (NaCl), where positive and negative charges balance to form a stable ionic compound. Similarly, electrons and holes near NP junctions in semiconductors neutralize each other.
 
 ABC systems can use binary logic to model cellular automata (CA) and fractals, such as the Sierpiński triangle implemented over a 1D binary pattern, row by row using Wolfram's Rule 90 \cite{wolfram1983statistical} as the XOR of the left and right neighbor: \( s_{i}^{t+1} = s_{i-1}^t \oplus s_{i+1}^t \). A physical example of such a process occurs in polymer linear chain growth, where adding a monomer depends on adjacent chemical groups.
 
@@ -204,17 +204,61 @@ Binary stability constraints suggest a pathway for the emergence of computation 
 
 \subsection{Evolution of Decoders and Sequential Computation}
 
-ABC systems can evolve computational functions, such as a binary decoder, through stability-driven
-selection. A simple 2-bit decoder maps \(00 \to A, 01 \to B, 10 \to C, 11 \to D\). An ABC system to model this consists of symbols \(\{0, 1, A, B, C, D\}\), where \(A, B, C, D\) represent outputs corresponding to the binary inputs \((00, 01, 10, 11)\). Stability constraints define the likelihood of mappings persisting over successive generations. For instance, the mapping \((0, 0, A)\) is assigned high stability, while invalid mappings such as \((0, 1, A)\) have lower or zero stability. One reason such a mapping may evolve is if A, B, C, D are powerful catalysts like Platinum or Palladium, and 2-bit patterns represent physical conditions required for their formation such as low or high neutron flux.
+ABC systems can evolve computational functions, such as a binary 2-bit decoder, through stability-driven
+selection. An ABC system to model this consists of symbols \(\{0, 1, A, B, C, D\}\), where \(A, B, C, D\) represent outputs corresponding to the binary inputs \((00, 01, 10, 11)\). Stability constraints define the likelihood of mappings persisting over successive generations. For instance, the mapping \((0, 0, A)\) is assigned high stability, while invalid mappings such as \((0, 1, A)\) have lower or zero stability. One reason such a mapping may evolve is if A, B, C, D are powerful catalysts like Platinum, and 2-bit patterns represent physical conditions required for their formation such as low or high neutron flux.
 
 The system begins with a random population of triplets \((X, Y, Z)\), where \(X, Y \in \{0, 1\}\) and \(Z \in \{A, B, C, D\}\). Over generations, unstable triplets are removed based on their stability scores, while stable triplets persist. Over time, only the mappings with the highest stability dominate the population. This evolutionary process demonstrates how stability constraints can drive the emergence of reliable decoding mechanisms.
 
 ABC systems may be able to evolve memory to store patterns. Physically, memory can emerge through feedback-driven flip-flops, where stability reinforces a persistent state. Alternatively, bistable states, like ferromagnetic domains with two stable magnetic states, could encode memory by switching states in response to inputs. Chemical bonds offer another pathway (favored by biotic systems), where stable bonds persist. The evolution of memory in ABC systems is a significant step toward complex behaviors, linking simple interactions to advanced computational and regulatory capabilities.
 
 In both natural and engineered systems, a key evolutionary advancement is the separation of fundamental operations
-such as chemical  reactions, physical processes, or logical operations from the sequencing of those operations. This decoupling allows fundamental operations to evolve independently based on local constraints (e.g., stability, energy minimization), while the sequencing evolves to encode complex functions, adapt to changes, or optimize outcomes. An example would be a recipe. The symbols are the ingredients, the mixing or heating are the interactions, and the preparation sequence is the repeatable process. Other examples include engineered circuits, programmed computers, as well as evolved structures such as a series of waterfalls. Each waterfall is an energy conversion operation on water, and the sequence is stored in the physical terrain.
+such as chemical  reactions, physical processes, or logical operations from the sequencing of those operations. This decoupling allows the operations to evolve based on local constraints (e.g., stability, energy minimization), while the sequencing evolves to encode complex functions, adapt to changes, or optimize outcomes. An example would be a recipe. The symbols are the ingredients, the mixing or heating are the interactions, and the preparation sequence is the repeatable process. Other examples include engineered circuits, programmed computers, as well as evolved structures such as a series of waterfalls. Each waterfall is an energy conversion operation on water, and the sequence is stored in the physical terrain.
 
 This idea is consistent with the theory that ribosomes evolved before the genetic code \cite{fox2010origin}. The interaction of mRNA codons with complementary tRNA anticodons is the fundamental decoding interaction whose stability is driven by its amino acid's role in the constructed protein. Once the interaction and decoding sequences are available and can be stored, the code that drives the sequencing may evolve to select stable sequences.
+
+\section{Evolution of Regulation and Control}
+
+Regulation and control can evolve in ABC systems through dynamic stability, feedback loops, and threshold dynamics. Stability serves as the foundation for regulation, where interactions occur only under specific conditions, such as when concentrations of certain symbols cross thresholds (like mixing an acid with a base): \[
+S(X) = 
+\begin{cases} 
+1 & \text{if } C_X > C_{X_{\text{crit}}}, \\
+0 & \text{otherwise,}
+\end{cases}
+\]
+ensuring that interactions are triggered only when critical concentrations are met. For graded responses, a sigmoidal function like
+\[
+S(X) = \frac{1}{1 + e^{-k(C_X - C_{X_{\text{crit}}})}}
+\]
+can be used, where \(k\) controls the steepness of the transition.
+
+Feedback loops naturally emerge when certain reactions influence the availability or stability of others. Positive feedback can be modeled as exponential growth, while negative feedback introduces saturation effects, such as 
+\[
+\frac{dC_X}{dt} = \alpha C_X - \beta C_X^2,
+\]
+where \(\beta > 0\) limits uncontrolled growth. Combined, these feedback dynamics enable stable equilibria, oscillations, or adaptive responses. Threshold dynamics enable both binary and graded regulation. For example, in multi-symbol interactions:
+\[
+S(A, B) = 
+\begin{cases} 
+1 & \text{if } C_A > C_{A_{\text{crit}}} \text{ and } C_B > C_{B_{\text{crit}}}, \\
+0 & \text{otherwise.}
+\end{cases}
+\]
+This ensures that interactions are stable only when specific conditions are met, enabling complex regulatory networks.
+
+Over generations, regulatory behaviors reduce system entropy by narrowing the state space. If the initial entropy is:
+\[
+H_0 = -\sum_{i} P_i \ln P_i,
+\]
+regulation reduces entropy to:
+\[
+H_t = -\sum_{j} Q_j \ln Q_j,
+\]
+where \(Q_j\) are the probabilities of states under regulation (\(H_t < H_0\)).
+
+By evolving regulatory networks, ABC systems can mimic natural processes such as Le Chatelier's principle or oscillatory systems like the Belousov-Zhabotinsky reaction. These mechanisms provide a pathway for dynamic stability, enabling the system to evolve behaviors analogous to homeostasis and adaptive control, which are hallmarks of both natural and engineered systems.
+
+Regulatory networks in ABC systems can also be understood through the lens of predator-prey dynamics, where components interact in competitive or suppressive relationships akin to ecological systems. In such a model, regulatory elements act as predators that suppress or consume the activity of other components (prey), while the prey elements provide the resources necessary for the predator's activity. These interactions can be mathematically described by modified Lotka-Volterra equations \cite{nowak2006evolutionary}, with population terms replaced by symbol concentrations and interaction terms shaped by stability constraints. The predator-prey analogy emphasizes the interplay between competition, cooperation, and feedback in the evolution of control mechanisms, further showcasing the versatility of ABC systems in modeling both biological and abiotic regulation.
+
 
 \section{Bayesian Updating in ABC Systems}
 
@@ -294,7 +338,9 @@ ABC systems provide a simple framework for understanding the emergence of comple
 
 The iterative interaction of elements in ABC systems may help explain the evolution of matter and energy. From the aggregation of quarks into elementary particles, to the evolution of molecules and chemistry. The periodic table, for example, organizes elements based on properties like ionization energy, chemical reactivity, etc. These properties bias element interactions, favoring stable configurations. For instance, \( H_2 \) forms in dense regions of space where hydrogen atoms collide and bond. It is stable due to strong covalent bonds, and serves as a building block for stars. This reflects the dominance of stability-driven patterns, akin to how ABC systems reinforce stable patterns over generations. 
 
-While ABC systems remove some mystical explanations of the origins or order and information, they still leave the question of fine-tuning unanswered. ABC systems mirror fine-tuned imbalances that drive the universe towards order, as shown in Rees's \textit{Just Six Numbers} \cite{rees2000just} and Davies's \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}. These works highlight how slight asymmetries in fundamental constants and parameters enable the emergence of complexity across scales. For example, the density parameter (\(\Omega\)) balances the universe's expansion and gravitational collapse; a slight deviation would either result in rapid collapse or an empty, structureless universe. Similarly, the binding energy of atomic nuclei (\(\epsilon\)) is finely tuned to allow the production of carbon and oxygen in stars, elements essential for life. On a cosmic scale, quantum fluctuations in the early universe led to density imbalances, guiding the clumping of matter into stars, galaxies, and other large-scale structures. These imbalances mirror the probabilistic gradients and stability constraints in ABC systems, which bias interactions towards the formation of ordered, stable patterns. Such asymmetries, whether in cosmological constants or local probabilities, drive systems away from randomness, enabling emergent complexity and order. These examples reinforce the universality of imbalance-driven dynamics, connecting the macro-scale evolution of the universe to the micro-scale principles modeled by ABC systems.
+ABC systems suggest that evolution may be a universal property of random populations with stability imbalances, not confined to living organisms. By demonstrating how random populations with stability-driven interactions naturally evolve toward order, this framework proposes that perhaps biological evolution of individual organisms is a later stage in such dynamics. It also raises questions on the role of mutations in evolution.
+
+ABC systems remove the need for mystical explanations of the origins or order and information, but they still leave open the question of fine-tuning. Fine-tuned imbalances, such as those described in Rees's \textit{Just Six Numbers} \cite{rees2000just} and Davies's \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}, exemplify how slight asymmetries in fundamental constants enable complexity across scales. For instance, the density parameter (\(\Omega\)) balances expansion and collapse in the universe, while quantum fluctuations seeded the formation of stars and galaxies. Similarly, in ABC systems, probabilistic gradients and stability constraints bias interactions toward forming stable, ordered patterns. This connection reinforces the idea that evolution, driven by imbalance and selection, operates universally, bridging the emergence of complexity from cosmological to molecular scales. In summary, one might say that God does play dice, but the dice are loaded.
 
 
 %\begin{listing}[H]
@@ -373,6 +419,9 @@ Schrödinger, E. \textit{What is Life?}; Cambridge University Press: Cambridge, 
 %ref 2
 \bibitem{tegmark2008mathematical}
 Tegmark, M. The Mathematical Universe. \textit{Found. Phys.} \textbf{2008}, \textit{38}, 101–150. 
+
+\bibitem{fisher1930genetical}
+Fisher, R.A. \textit{The Genetical Theory of Natural Selection}; Oxford University Press: Oxford, UK, 1930.
 
 %ref 3
 \bibitem{nowak2006evolutionary}
