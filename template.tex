@@ -198,7 +198,7 @@ Multi-site binary stability generalizes this concept to scenarios where stabilit
 
 For example, the XOR operation, fundamental to digital logic, can evolve from a random binary sequence  like \( 0110111000\dots \) where local interactions occur repeatedly between adjacent pairs over a number of "generations", such that pairs that are both 1 or both 0 are annihilated (stability=0). The result will be a strictly alternating sequence of \( 010101... \) or \( 10101... \) satisfying the XOR condition, and reducing the entropy of the sequence from 1 bit to 0, since it is fully deterministic. If, instead, we eliminate all adjacent \( 01 \) and \( 10 \) pairs from the sequence at every generation the sequence will annihilate itself, or evolve into all 1's or all 0's, which also has an entropy of 0. A physical example is the formation of salt (NaCl), where positive and negative charges balance to form a stable ionic compound. Similarly, electrons and holes near NP junctions in semiconductors neutralize each other.
 
-ABC systems can use binary logic to model cellular automata (CA) and fractals, such as the Sierpiński triangle implemented over a 1D binary pattern, row by row using Wolfram's Rule 90 \cite{wolfram1983statistical} as the XOR of the left and right neighbor: \( s_{i}^{t+1} = s_{i-1}^t \oplus s_{i+1}^t \). A physical example of such a process occurs in polymer linear chain growth, where adding a monomer depends on adjacent chemical groups.
+ABC systems can use binary logic to model cellular automata (CA) and fractals, such as the Sierpiński triangle implemented over a 1D binary pattern, row by row using Wolfram's Rule 90 \cite{wolfram1983statistical} as the XOR of the left and right neighbor: \( s_{i}^{t+1} = s_{i-1}^t \oplus s_{i+1}^t \). A physical example is how crystals form naturally based on stability constraints that align with Pauling's rules \cite{pauling1960nature}. 
 
 Binary stability constraints suggest a pathway for the emergence of computation in natural systems from simple interactions. These interactions serve as natural binary functions, ensuring that only specific configurations persist. By extending this concept to multi-site matching, ABC systems gain the ability to evolve more complex operations and structures, bridging the gap between simple stability-driven dynamics and the rich behavior of computational systems.
 
@@ -338,9 +338,9 @@ ABC systems provide a simple framework for understanding the emergence of comple
 
 The iterative interaction of elements in ABC systems may help explain the evolution of matter and energy. From the aggregation of quarks into elementary particles, to the evolution of molecules and chemistry. The periodic table, for example, organizes elements based on properties like ionization energy, chemical reactivity, etc. These properties bias element interactions, favoring stable configurations. For instance, \( H_2 \) forms in dense regions of space where hydrogen atoms collide and bond. It is stable due to strong covalent bonds, and serves as a building block for stars. This reflects the dominance of stability-driven patterns, akin to how ABC systems reinforce stable patterns over generations. 
 
-ABC systems suggest that evolution may be a universal property of random populations with stability imbalances, not confined to living organisms. By demonstrating how random populations with stability-driven interactions naturally evolve toward order, this framework proposes that perhaps biological evolution of individual organisms is a later stage in such dynamics. It also raises questions on the role of mutations in evolution.
+ABC systems suggest that evolution may be a universal property of random populations with stability imbalances, not confined to living organisms. By demonstrating how random populations with stability-driven interactions naturally evolve toward order, this framework proposes that perhaps biological evolution of individual organisms is a later stage in such dynamics. Recent findings suggest that stability-driven self-assembly mechanisms may play a crucial role in biotic systems, highlighting the interplay between abiotic and biological evolution \cite{davies2022selfassembly}.
 
-ABC systems remove the need for mystical explanations of the origins or order and information, but they still leave open the question of fine-tuning. Fine-tuned imbalances, such as those described in Rees's \textit{Just Six Numbers} \cite{rees2000just} and Davies's \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}, exemplify how slight asymmetries in fundamental constants enable complexity across scales. For instance, the density parameter (\(\Omega\)) balances expansion and collapse in the universe, while quantum fluctuations seeded the formation of stars and galaxies. Similarly, in ABC systems, probabilistic gradients and stability constraints bias interactions toward forming stable, ordered patterns. This connection reinforces the idea that evolution, driven by imbalance and selection, operates universally, bridging the emergence of complexity from cosmological to molecular scales. In summary, one might say that God does play dice, but the dice are loaded.
+ABC systems remove the need for mystical explanations of the origins or order and information, but they still leave open the question of fine-tuning. Fine-tuned imbalances, such as those described in Rees's \textit{Just Six Numbers} \cite{rees2000just} and Davies's \textit{The Goldilocks Enigma} \cite{davies2006goldilocks}, exemplify how slight asymmetries in fundamental constants enable complexity across scales. For instance, quantum fluctuations may have seeded the formation of stars and galaxies. Similarly, in ABC systems, probabilistic gradients and stability constraints bias interactions toward forming stable, ordered patterns. This connection reinforces the idea that evolution, driven by imbalance and selection, operates universally, bridging the emergence of complexity from cosmological to molecular scales. In summary, one is tempted to say that God does play dice, but the dice are loaded.
 
 
 %\begin{listing}[H]
@@ -420,96 +420,105 @@ Schrödinger, E. \textit{What is Life?}; Cambridge University Press: Cambridge, 
 \bibitem{tegmark2008mathematical}
 Tegmark, M. The Mathematical Universe. \textit{Found. Phys.} \textbf{2008}, \textit{38}, 101–150. 
 
+%ref 3
 \bibitem{fisher1930genetical}
 Fisher, R.A. \textit{The Genetical Theory of Natural Selection}; Oxford University Press: Oxford, UK, 1930.
 
-%ref 3
+%ref 4
 \bibitem{nowak2006evolutionary}
 Nowak, M.A. \textit{Evolutionary Dynamics: Exploring the Equations of Life}; Belknap Press: Cambridge, MA, USA, 2006.
 
-%ref 4
+%ref 5
 \bibitem{wheeler1990itbit}
 Wheeler, J.A. Information, Physics, Quantum: The Search for Links. In \textit{Complexity, Entropy, and the Physics of Information}; Zurek, W.H., Ed.; Addison-Wesley: Redwood City, CA, USA, 1990; pp. 3–28.
 
-%ref 5
+%ref 6
 \bibitem{noble2012causality}
 Noble, D. A Theory of Biological Relativity: No Privileged Level of Causation. \textit{Interface Focus} \textbf{2012}, \textit{2}, 55–64.
 
-%ref 6
+%ref 7
 \bibitem{lloyd2006programming}
 Lloyd, S. \textit{Programming the Universe: A Quantum Computer Scientist Takes on the Cosmos}; Alfred A. Knopf: New York, NY, USA, 2006.
 
-%ref 7
+%ref 8
 \bibitem{kolmogorov1965complexity}
 Kolmogorov, A.N. Three Approaches to the Quantitative Definition of Information. \textit{Problemy Peredachi Informatsii} \textbf{1965}, \textit{1}, 3–11.
 
-%ref 8
+%ref 9
 \bibitem{chaitin1977algorithmic}
 Chaitin, G.J. Algorithmic Information Theory. \textit{IBM J. Res. Dev.} \textbf{1977}, \textit{21}, 350–359. 
 
-%ref 9
+%ref 10
 \bibitem{solomonoff1964formal}
 Solomonoff, R.J. A Formal Theory of Inductive Inference. Part I and Part II. \textit{Inf. Control} \textbf{1964}, \textit{7}, 1–22, 224–254.
 
-%ref 10
+%ref 11
 \bibitem{shannon1948mathematical}
 Shannon, C.E. A Mathematical Theory of Communication. \textit{Bell Syst. Tech. J.} \textbf{1948}, \textit{27}, 379–423.
 
-%ref 11
+%ref 12
 \bibitem{deutsch2013constructor}
 Deutsch, D.; Marletto, C. Constructor theory of information. \textit{Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences} \textbf{2015}, \textit{471}, 20140540. 
 
-%ref 12
+%ref 13
 \bibitem{leff2002maxwell}
 Leff, H.S.; Rex, A.F. \textit{Maxwell’s Demon: Entropy, Information, Computing}; Princeton University Press: Princeton, NJ, USA, 2002.
 
-%ref 13
+%ref 14
 \bibitem{back1996evolutionary}
 Bäck, T.; Fogel, D.B.; Michalewicz, Z. \textit{Evolutionary Computation 1: Basic Algorithms and Operators}; CRC Press: Boca Raton, FL, USA, 2000.
 
-%ref 14
+%ref 15
 \bibitem{goldberg1989genetic}
 Goldberg, D.E. \textit{Genetic Algorithms in Search, Optimization, and Machine Learning}; Addison-Wesley: Boston, MA, USA, 1989.
 
-%ref 15
+%ref 16
 \bibitem{holland1975adaptation}
 Holland, J.H. \textit{Adaptation in Natural and Artificial Systems}; University of Michigan Press: Ann Arbor, MI, USA, 1975.
 
-%ref 16
+%ref 17
 \bibitem{wolfram1983statistical}
 Wolfram, S. Statistical Mechanics of Cellular Automata. \textit{Rev. Mod. Phys.} \textbf{1983}, \textit{55}, 601–644.
 
-%ref 17
+%ref 18
+\bibitem{pauling1960nature}
+Pauling, L. \textit{The Nature of the Chemical Bond}; Cornell University Press: Ithaca, NY, USA, 1960.
+
+%ref 19
 \bibitem{fox2010origin}
 Fox, G. E. 
 Origin and evolution of the ribosome. 
 \textit{Cold Spring Harbor Perspectives in Biology} \textbf{2010}, \textit{2}(9), a003483.
 
-%ref 18
+%ref 20
 \bibitem{mcgrayne2011theory}
 McGrayne, S.B. \textit{The Theory That Would Not Die: How Bayes' Rule Cracked the Enigma Code, Hunted Down Russian Submarines, and Emerged Triumphant from Two Centuries of Controversy}; Yale University Press: New Haven, CT, USA, 2011.
 
-%ref 19
+%ref 21
 \bibitem{kauffman2000investigations}
 Kauffman, S. \textit{Investigations}; Oxford University Press: New York, NY, USA, 2000.
 
-%ref 20
+%ref 22
 \bibitem{landau1980statistical}
 Landau, L. D., Lifshitz, E. M. \textit{Statistical Physics}; Pergamon Press, 1980.
 
-%ref 21
+%ref 23
 \bibitem{bertalanffy1968general}
 Bertalanffy, L. von. (1968). \textit{General System Theory}. New York: George Braziller.
 
-%ref 22
+%ref 24
 \bibitem{sutton2018reinforce}
 Sutton, R. S., Barto, A. G. (2018). Reinforcement Learning: An Introduction. MIT Press.
 
-%ref 23
+%ref 25
+\bibitem{davies2022selfassembly}
+Davies, J.; Levin, M. Self-Assembly: A New Frontier for Chemistry. \textit{Nature Synthesis} \textbf{2022}, \textit{1}, 1–3.
+
+%ref 26
 \bibitem{rees2000just}
 Rees, M. \textit{Just Six Numbers: The Deep Forces that Shape the Universe}; Basic Books: New York, NY, USA, 2000.
 
-%ref 24
+%ref 27
 \bibitem{davies2006goldilocks}
 Davies, P. \textit{The Goldilocks Enigma: Why is the Universe Just Right for Life?}; Allen Lane: London, UK, 2006.
 
