@@ -146,9 +146,9 @@ In contrast, random processes and stochastic fluctuations redistribute probabili
 \[
 \Delta H \propto \ln(t).
 \]
-As time progresses, the competition between the exponential growth of stable patterns and the logarithmic increase in entropy becomes evident. The net result is that the exponential growth of order, driven by stabilizing feedback and represented as \( \exp(\alpha S_{\text{eff}} t) \), outpaces the entropy increase \( \ln(t) \). This ensures that stability-driven feedback creates a net reduction in entropy, leading the system toward a more ordered, low-entropy state. Over time, the dominance of stable patterns suppresses randomness, driving the system into configurations characterized by emergent complexity and order.
+As time progresses, the competition between the exponential growth of stable patterns and the logarithmic increase in entropy becomes evident. When stability wins, the net result is that the exponential growth of order, driven by stabilizing feedback and represented as \( \exp(\alpha S_{\text{eff}} t) \), outpaces the entropy increase \( \ln(t) \). This allows stability-driven feedback to create a net reduction in entropy, leading the system toward a more ordered, low-entropy state. Over time, the dominance of stable patterns suppresses randomness, driving the system into configurations characterized by emergent complexity and order.
 
-This analysis demonstrates how stability-driven interactions in local populations generate order faster than the second law of thermodynamics can degrade it. While random fluctuations tend to increase entropy, the exponential reinforcement of stable patterns creates a net reduction in entropy, leading to emergent order. The dynamics also highlight the competitive nature of the system: only patterns with sufficiently high stability and effective interaction networks survive over the long term, ensuring the self-organization of the population into ordered configurations.
+This analysis demonstrates how stability-driven interactions in local populations may generate order faster than the second law of thermodynamics can degrade it. While random fluctuations tend to increase entropy, the exponential reinforcement of stable patterns creates a net reduction in entropy, leading to emergent order. The dynamics also highlight the competitive nature of the system: only patterns with sufficiently high stability and effective interaction networks survive over the long term, ensuring the self-organization of the population into ordered configurations.
 
 \subsection{Defining Stability in ABC Systems}
 
@@ -158,7 +158,7 @@ In ABC systems, the \textit{stability} distribution determines which patterns pe
 S(p, q) = Longevity \cdot Interactivity \cdot Environment
 \]
 
-Longevity measures how long a patterns endure, thus increasing its probability of participating in future interactions. For example, the stability of \(H_2O\) molecules stems from strong covalent bonds that allow them to persist and engage in subsequent reactions. Interactivity represents a pattern’s capacity to form new connections, analogous to valency in chemistry. Carbon’s high valence, for instance, enables it to create a wide array of stable compounds. Environmental Factors include temperature, pressure, and concentration, all of which influence how likely patterns are to form or persist. Ice formation depends on temperature and pressure, while higher reactant concentrations increase the likelihood of productive encounters.
+Longevity measures how long a pattern endures, thus increasing its probability of participating in future interactions. For example, the stability of \(H_2O\) molecules stems from strong covalent bonds that allow them to persist and engage in subsequent reactions. Interactivity represents a pattern’s capacity to form new connections, analogous to valency in chemistry. Carbon’s high valence, for instance, enables it to create a wide array of stable compounds. Environmental Factors include temperature, pressure, and concentration, all of which influence how likely patterns are to form or persist. For example, Ice formation depends on temperature and pressure, while higher reactant concentrations increase the likelihood of productive encounters.
 
 \subsection{Catalysis}
 
@@ -292,8 +292,7 @@ where:
     \item[] \( P(E|H) \): Likelihood (\( \sum_{q \in P} P(q_t) \cdot S(p, q) \)).
     \item[] \( P(H|E) \): Posterior probability (\( P(p_{t+1}) \)).
 \end{itemize}
-
-This iterative Bayesian updating process allows ABC systems to adapt and encode new information dynamically. The system continuously adjusts pattern probabilities to reflect the effects of interactions and stability constraints, resulting in emergent complexity and self-organization.
+This analysis shows that ABC systems utilize Bayesian updating to dynamically adjust an evolving probability distribution, reflecting the system's generative and adaptive nature, in contrast to classical Bayesian interpretations that primarily focus on subjective belief refinement within a static probability framework.
 
 \section{Emergent Information vs. Pre-Designed Information in ABC Systems}
 
@@ -301,7 +300,7 @@ In ABC systems, stable patterns evolve over time, encoding the history of the sy
 
 Pre-designed systems, such as 3D-printed compounds, have their information imposed externally, using patterns specified by a designer or blueprint, leaving little room for system dynamics. These systems lack an evolutionary process and do not explore configuration space; instead, they are constructed to achieve predefined states. Consequently, their outcomes are fixed and static, with minimal adaptation or self-organization. The absence of emergent dynamics distinguishes these systems from the adaptable and exploratory nature of ABC systems.
 
-The contrast between emergent and pre-designed systems suggests a potential criterion for determining whether a system is pre-designed: the presence of an evolutionary footprint. If a system displays emergent properties such as adaptation, path dependency, and entropy reduction, it may have evolved autonomously. Systems that achieve order without intermediate steps or feedback are more likely to be pre-designed. Machine learning systems lie somewhere in the middle.
+The contrast between emergent and pre-designed systems suggests a potential criterion for determining whether a system is pre-designed: the presence of an evolutionary footprint. If a system displays emergent properties such as adaptation, path dependency, and entropy reduction, it may have evolved autonomously. Systems that achieve order without intermediate steps or feedback are more likely to be pre-designed. Programmable and Machine Learning systems lie somewhere in the middle.
 
 
 \section{Top-Down vs. Bottom-Up Dynamics in ABC Systems}
