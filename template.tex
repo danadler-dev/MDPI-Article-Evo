@@ -342,7 +342,7 @@ Q(s, a, t+1) = Q(s, a, t) + \alpha \left( R + \gamma \max_{a'} Q(s', a', t) - Q(
 \]
 where \( \alpha \) is the learning rate, \( R \) is the immediate reward, \( \gamma \) is the discount factor for future rewards. Over time, \( Q(s, a, t) \) converges to optimal values, guiding the system's behavior.
 
-This equation is analogous to the evolutionary dynamics of ABC systems. For example, the formation of a compound \( AB \) can be seen as transitioning from a state where \( A \) and \( B \) are separate, to an interaction, where the choice depends on the probability distribution. Stability values (\( S(p, q) \)) play the role of rewards, translating to selection pressure in the next generation. The probability of compound \( p \) at generation \( t+1 \) can then be written as:
+This equation is analogous to the evolutionary dynamics of ABC systems. For example, the formation of a compound \( AB \) can be seen as transitioning from a state where \( A \) and \( B \) are separate, to an interaction, where the choice depends on the probability distribution. Stability values \( S(p, q) \) play the role of rewards, translating to selection pressure in the next generation. The probability of compound \( p \) at generation \( t+1 \) can then be written as:
 \[
 P(p, t+1) = P(p, t) + \alpha \left( S_{\text{eff}}(p, t) - P(p, t) \right),
 \]
