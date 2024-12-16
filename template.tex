@@ -150,15 +150,6 @@ As time progresses, the competition between the exponential growth of stable pat
 
 This analysis demonstrates how stability-driven interactions in local populations generate order faster than the second law of thermodynamics can degrade it. While random fluctuations tend to increase entropy, the exponential reinforcement of stable patterns creates a net reduction in entropy, leading to emergent order. The dynamics also highlight the competitive nature of the system: only patterns with sufficiently high stability and effective interaction networks survive over the long term, ensuring the self-organization of the population into ordered configurations.
 
-\subsection{Catalysis}
-
-Consider an ABC system where \( A \) interacts with \( B \) to form a compound \( AB \), but this interaction occurs only in the presence of a catalyst \( C \). The catalyst \( C \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. This creates selection pressure for \( C \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( C \) facilitates the reaction by increasing its likelihood:
-\[
-P(A + B \to AB \mid C) \propto p_A \cdot p_B \cdot p_C.
-\]
-
-The catalyst \( C \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system. This means we can expect a higher probability of \( C \) in later generations, even though it does not directly form stable compounds.
-
 \subsection{Defining Stability in ABC Systems}
 
 In ABC systems, the \textit{stability} distribution determines which patterns persist and thus influence subsequent interactions. We define stability as a product of three factors: longevity, interactivity, and environmental conditions:
@@ -168,6 +159,15 @@ S(p, q) = Longevity \cdot Interactivity \cdot Environment
 \]
 
 Longevity measures how long a patterns endure, thus increasing its probability of participating in future interactions. For example, the stability of \(H_2O\) molecules stems from strong covalent bonds that allow them to persist and engage in subsequent reactions. Interactivity represents a pattern’s capacity to form new connections, analogous to valency in chemistry. Carbon’s high valence, for instance, enables it to create a wide array of stable compounds. Environmental Factors include temperature, pressure, and concentration, all of which influence how likely patterns are to form or persist. Ice formation depends on temperature and pressure, while higher reactant concentrations increase the likelihood of productive encounters.
+
+\subsection{Catalysis}
+
+Consider an ABC system where \( A \) interacts with \( B \) to form a compound \( AB \), but this interaction occurs only in the presence of a catalyst \( C \). The catalyst \( C \) is not consumed or altered during the interaction, yet it influences the system's dynamics by facilitating specific reactions. This creates selection pressure for \( C \) to persist due to its role in enabling the formation of stable compounds. In this case, the catalyst \( C \) facilitates the reaction by increasing its likelihood:
+\[
+P(A + B \to AB \mid C) \propto p_A \cdot p_B \cdot p_C.
+\]
+
+The catalyst \( C \) benefits indirectly, as its presence enables reactions that increase the overall fitness of the system. This means we can expect a higher probability of \( C \) in later generations, even though it does not directly form stable compounds.
 
 \section{Mixing Two ABC Systems: Entropy Dynamics}
 
